@@ -5,7 +5,7 @@ import About from './pages/About'
 import Contact from './pages/Contact'
 // import Salon from './pages/Salon'
 import Salon from './pages/Salon/Salon'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import AllSalons from './pages/AllSalons'
 import { Privacy } from './pages/Privacy/Privacy'
 import Terms from './pages/Terms/Terms'
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      {/* <BrowserRouter> */}
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/giftcard' element={<GiftCard />} />
@@ -31,7 +31,7 @@ function App() {
           <Route path='/salon/:title' element={<Salon />} />
          
         </Routes>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </>
   )
 }
