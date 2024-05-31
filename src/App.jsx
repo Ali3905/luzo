@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/giftcard' element={<GiftCard />} />
@@ -31,7 +31,7 @@ function App() {
           <Route path='/salon/:title' element={<Salon />} />
          
         </Routes>
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     </>
   )
 }
