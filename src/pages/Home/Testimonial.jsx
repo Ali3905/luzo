@@ -12,7 +12,7 @@ const Testimonial = () => {
   return (
     <div className='bg-[#13357B]'>
     <div className=" flex sm:flex-row  flex-col justify-between sm:px-[100px]  py-[40px] px-[10px] max-w-[1400px] mx-auto">
-        <div className="sm:w-[550px]">
+        <div className="sm:max-w-[40%]">
             <h1 className="text-white text-[30px] font-bold">Why customers love LUZO?</h1>
              
              <div className="flex flex-row py-[20px] gap-[60px] ">
@@ -54,7 +54,7 @@ const Testimonial = () => {
 
         </div>
 
-        <div className="sm:w-[636px]">
+        <div className="sm:max-w-[55%]">
         <Swiper      
                     
                     slidesPerView={1}

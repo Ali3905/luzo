@@ -10,6 +10,7 @@ import AllSalons from './pages/AllSalons'
 import { Privacy } from './pages/Privacy/Privacy'
 import Terms from './pages/Terms/Terms'
 import Loading from './pages/Loading/Loading'
+import NotFound from './pages/NotFound'
 
 function App() {
 
@@ -25,6 +26,8 @@ function App() {
           <Route path='/privacy' element={<Privacy />} />
           <Route path='/terms' element={<Terms />} />
           <Route path='/loading' element={<Loading />} />
+          <Route path='*' element={<NotFound />} />
+      
           
 
          

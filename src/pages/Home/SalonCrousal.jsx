@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 
 const SalonCrousal = () => {
     return (
-        <div className=' px-[40px] my-[30px] sm:my-[60px] max-w-[1400px] sm:mx-auto'>
+        <div className=' px-[10px] my-[30px] sm:my-[60px] max-w-[1320px] sm:mx-auto'>
             <h1 className='font-bold text-[30px] text-[#051036]'>200+ Salons and Spas</h1>
             {/* <div> */}
             <Swiper

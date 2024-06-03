@@ -39,16 +39,16 @@ const HowToUse = () => {
                 </div>
 
             </div>
-            <dialog ref={modalRef} className='backdrop:backdrop-blur-sm half-transparent-backdrop z-30 overflow-hidden bg-transparent '>
+            <dialog ref={modalRef} className='backdrop:backdrop-blur-sm half-transparent-backdrop z-30 overflow-hidden bg-transparent modal animated'>
                 <div className='flex flex-col items-center relative'>
-                <span className='bg-black text-white p-4 rounded-full absolute top-0 right-0 cursor-pointer hover:bg-blue-400 z-40' onClick={handlCloseModal}>
+                <span className='bg-black text-white p-4 rounded-full cursor-pointer hover:bg-blue-400 z-40' onClick={handlCloseModal}>
                     <X />
                 </span>
                 {/* <Video width="100%" height="65%" controls controlsList='nodownload' autoPlay loop ref={videoRef} >
                     <source src='/img/luzo_pay.mp4' type='video/mp4' className=''   />
                 </Video> */}
 
-                <video controls loop playsInline className={"sm:w-[35%] h-full mx-auto"} ref={videoRef} >
+                <video controls loop playsInline className={"sm:w-[35%] h-full mx-auto rounded-md"} ref={videoRef} >
                     <source src='/img/luzo_pay.mp4' type='video/mp4'  />
                 </video>
                 </div>

@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import DownloadLinks from '../../components/DownloadLinks'
 
 const AboutLuzo = () => {
   return (
@@ -13,10 +14,11 @@ const AboutLuzo = () => {
               </div>
          
                <img src="/img/download.webp" className="rounded xl sm:py-none py-[20px] lg:max-w-[50%] order-3 " alt="img" width='636px' height='477px'/>
-        <div className="flex flex-row my-[30px] sm:flex-start justify-center gap-[10px] order-2 sm:order-4 ">
+        {/* <div className="flex flex-row my-[30px] sm:flex-start justify-center gap-[10px] order-2 sm:order-4 ">
              <Link to='/loading'><img src="/img/appstore.webp" alt="img" width='150'/></Link>
               <Link to='/loading'><img src="/img/playstore.webp" alt="img" width='150'/></Link>
-        </div>
+        </div> */}
+        <DownloadLinks className={"my-[30px] sm:flex-start justify-center gap-[10px] order-2 sm:order-4"} />
         </div>
 
     </div>

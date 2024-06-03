@@ -47,3 +47,22 @@
             transform: translate(-50%, -50%);
 }
   
+
+/* .modal {
+  opacity:0;
+} */
+
+.animated {
+  animation: fadeIn .5s;
+
+}
+/* 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+} */
+
+@keyframes fadeIn {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}

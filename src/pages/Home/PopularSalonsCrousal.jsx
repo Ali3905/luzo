@@ -98,7 +98,7 @@ const PopularSalonsCrousal = () => {
                     </SwiperSlide>
 
                     <SwiperSlide>
-                        <Link to=''>
+                        <Link to='/salon/cocomelon'>
                             <div className='flex flex-col gap-[20px] rounded-xl overflow-hidden'>
                                 <img src='/SalonPhotos/Cocomelon.webp' alt='salon' className='aspect-video transform hover:scale-110 transition  duration-300 ease-in-out' />
                                 <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>CocoMelon</h1>
@@ -146,7 +146,7 @@ const PopularSalonsCrousal = () => {
                         <Link to='/salon/tip-and-toe'>
                             <div className='flex flex-col gap-[20px] rounded-xl overflow-hidden'>
                                 <img src='/SalonPhotos/timntoe.webp' alt='salon' className='aspect-video transform hover:scale-110 transition  duration-300 ease-in-out' />
-                                <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>Tim & Toe</h1>
+                                <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>Tip & Toe</h1>
                             </div>
                         </Link>
                     </SwiperSlide>
@@ -156,6 +156,55 @@ const PopularSalonsCrousal = () => {
                             <div className='flex flex-col gap-[20px] rounded-xl overflow-hidden'>
                                 <img src='/SalonPhotos/toninguy.webp' alt='salon' className='aspect-video transform hover:scale-110 transition  duration-300 ease-in-out' />
                                 <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>Toni & Guy </h1>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+
+                    
+                    <SwiperSlide>
+                        <Link to='/salon/lookwell'>
+                            <div className='flex flex-col gap-[20px] rounded-xl overflow-hidden'>
+                                <img src='/SalonPhotos/LookWell.webp' alt='salon' className='aspect-video transform hover:scale-110 transition  duration-300 ease-in-out' />
+                                <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>LookWell </h1>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+
+                    
+                    <SwiperSlide>
+                        <Link to='/salon/kprive'>
+                            <div className='flex flex-col gap-[20px] rounded-xl overflow-hidden'>
+                                <img src='/SalonPhotos/Kprive.webp' alt='salon' className='aspect-video transform hover:scale-110 transition  duration-300 ease-in-out' />
+                                <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>Kprive </h1>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+
+                    
+                    <SwiperSlide>
+                        <Link to='/salon/juice'>
+                            <div className='flex flex-col gap-[20px] rounded-xl overflow-hidden'>
+                                <img src='/SalonPhotos/juice,ghatkopar.webp' alt='salon' className='aspect-video transform hover:scale-110 transition  duration-300 ease-in-out' />
+                                <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>Juice </h1>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+
+                    
+                    <SwiperSlide>
+                        <Link to='/salon/lemon'>
+                            <div className='flex flex-col gap-[20px] rounded-xl overflow-hidden'>
+                                <img src='/SalonPhotos/lemon.webp' alt='salon' className='aspect-video transform hover:scale-110 transition  duration-300 ease-in-out' />
+                                <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>Lemon </h1>
+                            </div>
+                        </Link>
+                    </SwiperSlide>
+                    
+                    <SwiperSlide>
+                        <Link to='/salon/houseofbumble'>
+                            <div className='flex flex-col gap-[20px] rounded-xl overflow-hidden'>
+                                <img src='/SalonPhotos/HouseOfBumble.webp' alt='salon' className='aspect-video transform hover:scale-110 transition  duration-300 ease-in-out' />
+                                <h1 className='text-white text-[30px] font-medium absolute bottom-0 left-0  px-4 py-2'>House Of Bumble </h1>
                             </div>
                         </Link>
                     </SwiperSlide>

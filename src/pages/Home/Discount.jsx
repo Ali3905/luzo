@@ -31,11 +31,12 @@ const Discount = () => {
                 {
                     steps.map((step, i) => {
                         return <div className="flex items-center sm:flex-col gap-[10px]">
-                            <span className="flex flex-col items-center gap-1 w-[120px] sm:w-auto">
+                            <span className="flex flex-col items-center gap-1 w-[120px] sm:hidden">
                                 <img src={step.image} className="max-w-[90px] h-[90px] sm:w-[140px] sm:h-[140px]" />
                                
                                 <img src="/img/svg/line.svg" alt="line" className={`${i===steps.length-1 ? "invisible" : "visible"} sm:invisible`} />
                             </span>
+                            <img src={step.image} alt="sdf" className="w-[140px] h-[140px] hidden sm:block" />
                             <span className="flex flex-col">
                                 <h1 className="text-[18px] sm:text-center font-medium sm:py-[10px]">{step.title}</h1>
                                 <p className="text-[15px] sm:text-center ">{step.description}</p>

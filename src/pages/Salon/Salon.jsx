@@ -3,6 +3,7 @@ import Footer from "../../components/Footer"
 import Navbar from "../../components/Navbar"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import DownloadLinks from "../../components/DownloadLinks"
 
 
 const Salon = () => {
@@ -151,6 +152,28 @@ const Salon = () => {
       branches: ["Roopnagari Society, Kothrud, Pune", "Vision Galleria, Pimple Saudagar, Pune", "Acropolis, Aundh, Pune", "Power Point, Koregaon Park, Pune"]
 
     },
+    
+    {
+      id: 17,
+      name: "CocoMelon",
+      route: "cocomelon",
+      image: "/SalonPhotos/Apple(The Original).webp",
+      description: ['Book a time at Cocomelon Salon & Spa for manicures, pedicures, massage, facials, hair botox, haircuts, hair color, skin treatments and IV Vita drips.','The best of Glutathione drips are available at Cocomelon. Hidden away in the heart of Mumbai lies the entrance to another world. A place where time seems to stand still and every moment is devoted to serenity.','The moment you step through the door, let all your senses unwind. Guided by their experienced team of therapists, reconnect your mind, body and spirit.'],
+      branches: ["Woodrow Commercial Premises, Andheri (West), Mumbai", "Vision Galleria, Pimple Saudagar, Pune", "Acropolis, Aundh, Pune", "Power Point, Koregaon Park, Pune"]
+
+    },
+    
+    {
+      id: 18,
+      name: "House Of Bumble",
+      route: "houseofbumble",
+      image: "/SalonPhotos/HouseOfBumble.webp",
+      description:['House Of Bumble Salon by Shackya in Pune is one of the leading businesses in the Beauty Salons.'],
+      branches: ["Waterfront Condominiums, Kalyani Nagar, Pune", "Vasundhara Space, Aundh, Pune"]
+
+    }
+
+    
    
 
   ]
@@ -189,8 +212,8 @@ const Salon = () => {
             <div className="flex sm:flex-row flex-col flex-wrap gap-[30px]">
               {
                 salon.branches.map((ele) => {
-                  return <div className="border sm:w-[400px] border-[#B9B9B9] rounded px-[30px] py-[10px]  shadow-sm flex gap-[20px] items-center">
-                    <img src="/img/pin.svg" height='20' width='20' /><p>{ele}</p></div>
+                  return <div className="border sm:w-[30%] text-[14px] border-[#B9B9B9] rounded px-[30px] py-[8px]  shadow-sm flex gap-[20px] items-center">
+                    <img src="/img/pin.svg" height='20' width='20' /><p className="py-[10px]">{ele}</p></div>
                 })
               }
             </div>
@@ -198,10 +221,11 @@ const Salon = () => {
 
           </div>
         </div>
-        <div className="flex flex-row gap-[10px] items-center justify-center mb-[60px] py-[15px]">
+        {/* <div className="flex flex-row gap-[10px] items-center justify-center mb-[60px] py-[15px]">
               <Link to='/loading'><img src="/img/appstore.webp" alt="img" width='150'/></Link>
               <Link to='/loading'><img src="/img/playstore.webp" alt="img" width='150'/></Link>
-        </div>
+        </div> */}
+        <DownloadLinks className={"items-center justify-center mb-[60px] py-[15px]"} />
         <Footer />
       </div> : "Loading..."}
     </>
