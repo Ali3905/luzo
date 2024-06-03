@@ -56,7 +56,7 @@ const Loading = () => {
       // Check for Android
       if (/Android/.test(userAgent)) {
         setInterval(() => {
-          navigate("https://play.google.com/store/apps/details?id=com.salon_surf" + "&")
+          window.location.assign("https://play.google.com/store/apps/details?id=com.salon_surf" + "&")
         }
           , 1500);
         return 'Android';
@@ -65,7 +65,7 @@ const Loading = () => {
       // Check for iOS (if platform didn't cover it)
       if (/iPhone|iPad|iPod/.test(userAgent) && !window.MSStream) {
         setInterval(() => {
-                navigate("https://apps.apple.com/in/app/salonsurf/id1594592604" + "?")
+                window.location.assign("https://apps.apple.com/in/app/salonsurf/id1594592604" + "?")
               }
                 , 1500);
         return 'iOS';
