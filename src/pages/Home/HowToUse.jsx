@@ -41,7 +41,7 @@ const HowToUse = () => {
             </div>
             <dialog ref={modalRef} className='backdrop:backdrop-blur-sm half-transparent-backdrop z-30 overflow-hidden bg-transparent modal animated'>
                 <div className='flex flex-col items-center relative'>
-                <span className='bg-black text-white p-4 rounded-full cursor-pointer hover:bg-blue-400 z-40' onClick={handlCloseModal}>
+                <span className='bg-black text-white p-4 rounded-full absolute top-4 cursor-pointer hover:bg-blue-400 z-40' onClick={handlCloseModal}>
                     <X />
                 </span>
                 {/* <Video width="100%" height="65%" controls controlsList='nodownload' autoPlay loop ref={videoRef} >

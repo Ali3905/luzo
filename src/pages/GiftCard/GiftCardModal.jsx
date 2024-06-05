@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
-import { CircleX, Cross, X } from "lucide-react"
+import { X } from "lucide-react"
 import axios from 'axios'
 
 const GiftCardModal = ({ intialInfo, handleCloseModal }) => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm({
         defaultValues: intialInfo
     })
-    useEffect(()=>{
+    useEffect(() => {
         reset(intialInfo)
     }, [intialInfo])
 
@@ -16,39 +16,95 @@ const GiftCardModal = ({ intialInfo, handleCloseModal }) => {
             // console.log(data);
             const res = await axios({
                 method: "post",
-                url: "http://localhost:8000/api/razorpay/createpayment",
-                data: {
-                    name : data.name,
-                    number : data.number,
-                    amount : data.amount,
-                    description : data?.description,
-                    email : data?.receiverEmail
-                }
+                url: `${import.meta.env.VITE_SERVER_HOST}/api/salon-pro/create/order`,
+                params: {
+                    verify : import.meta.env.VITE_VERIFY,
+                    amount: data.amount * 100,
+                    currency: "INR"
+                },
+                headers: {
+                    "Accept": "applocation/json",
+                    "Content-Type": 'application/json'
+                },
+                // data: {
+                //     name : data.name,
+                //     number : data.number,
+                //     amount : data.amount,
+                //     description : data?.description,
+                //     email : data?.receiverEmail
+                // }
             })
-            console.log(res);
             return res.data
         } catch (error) {
-            console.log(error)
             alert("Something went wrong")
         }
     }
 
 
-    const handle = (data) => {
-        const res =  handleCreatePayment(data)
+    const handle = async (data) => {
+        const res = await handleCreatePayment(data)
+        console.log({res});
         handleCloseModal()
         const options = {
-            "key": "rzp_test_6FPOqqU1x530La", // Enter the Key ID generated from the Dashboard
-            "amount": data.amount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "key": import.meta.env.VITE_RAZOR_API_KEY, // Enter the Key ID generated from the Dashboard
+            "amount": 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
             "currency": "INR",
             "name": "Acme Corp", //your business name
             "description": data?.description,
             "image": "https://example.com/your_logo",
-            "order_id": res.order_id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-            "handler": function (response) {
+            "order_id": res.data.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": async function (response) {
+                console.log({response});
                 alert(response.razorpay_payment_id);
                 alert(response.razorpay_order_id);
                 alert(response.razorpay_signature)
+
+                const det = await axios({
+                    method: 'post',
+                    url : `${import.meta.env.VITE_SERVER_HOST}/api/salon-pro/verify/payment`,
+                    headers: {
+                        "Accept": "applocation/json",
+                        "Content-Type": 'application/json'
+                    },
+                    params: {
+                        verify: import.meta.env.VITE_VERIFY,
+                        orderId: res.data.id,
+                        razorpayPaymentId: response.razorpay_payment_id,
+                        razorpayOrderId: response.razorpay_order_id,
+                        razorpaySignature: response.razorpay_signature,
+                    }
+                })
+                // const verify = await det.json()
+                console.log({ det });
+                if (det.data.status === "success") {
+                    const purchaseRes = await axios({
+                        method: "post",
+                        url: `${import.meta.env.VITE_SERVER_HOST}/api/v1/giftcard/purchase`,
+                        headers: {
+                            "Accept": "applocation/json",
+                            "Content-Type": 'application/json'
+                        },
+                        params: {
+                            buyerName : data.name,
+                            buyerContact : data.number,
+                            amount : data.amount,
+                            recipientMessage : data?.description || "No message",
+                            recipientContact : data?.receiverPhoneNumber,
+                            recipientName : data?.receiverName,
+                        }
+                    })
+                    if (purchaseRes.data.status === "success") {
+                        alert("Payment success")
+                    }
+                    else { 
+                        alert("Something went wrong")
+
+                    }
+                }
+                else { 
+                    alert("Something went wrong")
+
+                }
             },
             "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
                 "name": intialInfo?.receiverName, //your customer's name
@@ -74,7 +130,6 @@ const GiftCardModal = ({ intialInfo, handleCloseModal }) => {
         });
         rzp1.open();
         e.preventDefault();
-        // </script>
     }
 
 
@@ -83,7 +138,7 @@ const GiftCardModal = ({ intialInfo, handleCloseModal }) => {
             <div className='flex justify-between text-[18px] border-b-2 '>
                 <p className='font-medium'>Confirm your details</p>
                 <button className='bg-black rounded-full aspect-square w-[30px] flex justify-center items-center' type='button' onClick={handleCloseModal}><X color="#ffffff" /></button>
-                
+
             </div>
             <label className="flex flex-col text-[16px]  py-2 gap-2 font-medium" htmlFor="name">
                 Your Name

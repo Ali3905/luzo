@@ -12,17 +12,17 @@ const ContactUsForm = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm();
   const handleSendMessage = async (data) => {
     try {
       const res = await axios({
         method: "post",
-        url: "http://localhost:8000/api/contact",
-        data: { ...data, email: "xyz@gmail.com" },
+        url: `${import.meta.env.VITE_SERVER_HOST}/api/v1/sendMail`,
+        params: { ...data },
       });
       console.log(res);
-      alert("Message sent");
+      alert(res.data.message);
     } catch (error) {
       console.log(error);
       alert("Could not send message");
@@ -51,14 +51,15 @@ const ContactUsForm = () => {
             <input
               placeholder="Your Number"
               className="border rounded-[5px] px-[10px] pb-[20px] "
-              {...register("number", {
-                required: "Number is required",
+              type="number"
+              {...register("contact", {
+                required: "Contact is required",
                 minLength: { value: 10, message: "Enter a valid phone number" },
                 maxLength: { value: 11, message: "Enter a valid phone number" },
               })}
             />
-            {errors.number && (
-              <span className="text-red-500">{errors.number.message}</span>
+            {errors.contact && (
+              <span className="text-red-500">{errors.contact.message}</span>
             )}
 
             <textarea
@@ -75,7 +76,7 @@ const ContactUsForm = () => {
             className="bg-[#3554D1] mt-[10px] flex text-[white] font-medium px-[20px] py-[20px] rounded"
             type="submit"
           >
-            Send a Message <ArrowUpRight />
+            {isSubmitting?"Sending" : <>Send a Message <ArrowUpRight /></>}
           </button>
         </form>
         <div className=" ">

@@ -2,8 +2,10 @@ import { useParams } from "react-router-dom"
 import Footer from "../../components/Footer"
 import Navbar from "../../components/Navbar"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
 import DownloadLinks from "../../components/DownloadLinks"
+import { X } from 'lucide-react'
+
+import { Link } from 'react-router-dom'
 
 
 const Salon = () => {
@@ -190,6 +192,8 @@ const Salon = () => {
     getData()
   }, [title])
 
+  
+  const [showDownload, setShowDownload] = useState(true)
   return (
     <>
       {salon !== null ? <div>
@@ -197,7 +201,7 @@ const Salon = () => {
         <div>
           <img src={salon.image} className="col-12 rounded-4 w-full h-[380px] object-cover" />
 
-          <div className="px-[100px] leading-[30px] ">
+          <div className="sm:px-[100px] px-[10px] sm:leading-[30px] ">
             <h1 className="font-medium text-[50px] py-[20px] sm:mt-[10px]">{salon.name}</h1>
             <div>
               {salon.description.map((ele) => {
@@ -228,6 +232,12 @@ const Salon = () => {
         <DownloadLinks className={"items-center justify-center mb-[60px] py-[15px]"} />
         <Footer />
       </div> : "Loading..."}
+      <div className={`bg-black w-full fixed bottom-[1%] z-20 text-white flex items-center justify-between gap-[2px] py-4 px-2 ${showDownload?"visible":"invisible"} transition sm:hidden`}>
+        <button onClick={()=>setShowDownload(false)}><X/></button>
+        <img src="/img/icon.webp" alt="logo" className='w-[20px] aspect-square' />
+        <p className='whitespace-nowrap text-[13px]'>Download and book the luzo</p>
+        <button className='bg-blue-300 rounded-md p-2'><Link to={"/loading"}>DownLoad</Link></button>
+      </div>
     </>
 
   )

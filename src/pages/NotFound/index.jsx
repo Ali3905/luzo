@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 const index = () => {
   return (
     <div className='flex justify-center items-center h-screen'>
-        <p className='border border-r'>404  </p> 
-        <span><p>This Page Could Not Found </p>
-        <Link to='/'>Go TO Home Page</Link></span>
+        <p className=' border-r-2 border-black h-10 flex items-center text-[20px] text- font-medium px-[10px]'>404  </p> 
+        <span className='px-[10px]'><p>This Page Could Not Found </p>
+        <Link to='/' className='text-[blue]'>Go To Home Page</Link></span>
     </div>
   )
 }

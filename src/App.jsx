@@ -11,8 +11,10 @@ import { Privacy } from './pages/Privacy/Privacy'
 import Terms from './pages/Terms/Terms'
 import Loading from './pages/Loading/Loading'
 import NotFound from './pages/NotFound'
+import { useEffect } from 'react'
 
 function App() {
+
 
   return (
     <>

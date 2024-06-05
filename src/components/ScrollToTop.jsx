@@ -23,18 +23,20 @@ export default function ScrollToTop() {
     // Customize the title based on the pathname
     let title = 'Luzo'; // Default title
     if (pathname === '/') {
-      title = 'Luzo - My App';
+      title = 'LUZO | AVail Offers at Premium Salons and Spas';
     } else if (pathname === '/about') {
-      title = 'About Us - My App';
-    } else if (pathname === '/contact') {
-      title = 'Contact Us - My App';
+      title = 'About Us - LUZO';
+    }else if (pathname === '/giftcard'){
+       title = 'Gift Card | LUZO'
+    }else if (pathname === '/contact') {
+      title = 'Contact Us - LUZO';
     } else if (pathname.startsWith("/salon")) {
       const salonName = pathname.split("/")[pathname.split("/").length - 1]
       const transformed = transformString(salonName)
       console.log({pathname, salonName});
-      title = `${transformed} | Luzo`;
+      title = `${transformed} Salon | LUZO`;
     } else {
-      title = `${pathname.substring(1).charAt(0).toUpperCase()}${pathname.substring(1).slice(1)} - My App`;
+      title = `${pathname.substring(1).charAt(0).toUpperCase()}${pathname.substring(1).slice(1)} - LUZO`;
     }
 
     document.title = title;
