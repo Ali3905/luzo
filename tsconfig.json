@@ -27,7 +27,7 @@
     "build/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/service-details/Container.jsx"  ],
   "exclude": [
     "node_modules"
   ]

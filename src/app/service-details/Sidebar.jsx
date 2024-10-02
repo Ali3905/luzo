@@ -10,9 +10,9 @@ const Sidebar = ({ onSelect }) => {
       const res = await axios({
         method: "post",
         baseURL: `${process.env.NEXT_PUBLIC_TEST_HOST}/api/v1`,
-        url: "/salon/details",
+        url: "/salon/subCategories",
         params: {
-          // main_category_id: 18,
+          main_category_id: 18,
           salon_id: 811
         }
       })
