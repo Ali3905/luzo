@@ -1,10 +1,10 @@
 "use client"
 
-import Navbar from "@/components/Navbar"
+import Navbar from "../../components/Navbar"
 import Salons from "./Salons"
-import Footer from "@/components/Footer"
-import DownloadPopUp from "@/components/DownloadPopUp"
-import ScrollToTop from "@/components/ScrollToTop"
+import Footer from "../../components/Footer"
+import DownloadPopUp from "../../components/DownloadPopUp"
+import ScrollToTop from "../../components/ScrollToTop"
 
 const page = () => {
   return (
