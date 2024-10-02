@@ -1,7 +1,7 @@
 import React from 'react'
 import Info from './Info'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Navbar from '../../../components/Navbar'
+import Footer from '../../../components/Footer'
 
 import Carousel from './Carousel'
 import Services from './Services'

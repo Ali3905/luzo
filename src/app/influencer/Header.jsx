@@ -1,5 +1,5 @@
 import React from 'react'
-import DownloadLinks from '@/components/DownloadLinks'
+import DownloadLinks from '../../components/DownloadLinks'
 
 const Header = () => {
     return (

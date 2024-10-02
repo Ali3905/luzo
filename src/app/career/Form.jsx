@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react'
 import Checkbox from '../../components/Checkbox'
-import Radio from '@/components/Radio'
+import Radio from '../../components/Radio'
 import axios from 'axios'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import Swal from 'sweetalert2'
-import Dropdown from '@/components/Dropdown'
-import FileInput from '@/components/FileInput'
+import Dropdown from '../../components/Dropdown'
+import FileInput from '../../components/FileInput'
 
 
 const Form = () => {

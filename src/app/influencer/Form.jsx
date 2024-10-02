@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react'
-import FileInput from '@/components/FileInput'
+import FileInput from '../../components/FileInput'
 import { Controller, useForm } from 'react-hook-form'
 import axios from 'axios'
 import Swal from 'sweetalert2'

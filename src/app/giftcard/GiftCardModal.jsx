@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Swal from 'sweetalert2';
 import swal from 'sweetalert';
 import { ClipLoader } from 'react-spinners';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import GoogleAnalytics from '../../components/GoogleAnalytics';
 
 
 

@@ -14,7 +14,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {Helmet} from "react-helmet";
 import Image from 'next/image'
-import DownloadPopUp from '@/components/DownloadPopUp'
+import DownloadPopUp from '../../components/DownloadPopUp'
 import { WhyBook } from './WhyBook'
 
 const Home = () => {
