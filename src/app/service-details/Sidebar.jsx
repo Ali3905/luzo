@@ -16,7 +16,7 @@ const Sidebar = ({ onSelect }) => {
           salon_id: 811
         }
       })
-      setServices(res.data.sub_categories.services)
+      setServices(res.data.sub_categories)
     } catch (error) {
       console.log(error);
       alert("Could not fetch services")
