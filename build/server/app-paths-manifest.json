@@ -1,7 +1,0 @@
-{
-  "/page": "app/page.js",
-  "/partner-details/[id]/page": "app/partner-details/[id]/page.js",
-  "/service-details/page": "app/service-details/page.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/salon/[salonName]/page": "app/salon/[salonName]/page.js"
-}
