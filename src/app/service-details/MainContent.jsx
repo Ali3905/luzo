@@ -55,7 +55,7 @@ const MainContent = ({ selectedService, serviceData }) => {
             </div>
            
             <div className="">
-                {selectedService.services.map((service, index) => (
+                {selectedService?.services?.map((service, index) => (
                   <div key={index} className=" border-gray-500 border-b-4 border-b-gray-200">
                     <div 
                       className="flex justify-between items-center p-2 cursor-pointer" 
@@ -74,7 +74,7 @@ const MainContent = ({ selectedService, serviceData }) => {
                           <p className="text-[10px]">{service.one_line_description}</p>
                           <p className="text-[10px]">{service.display_rate}</p>
                          </div>
-                         <button className="text-blue-200 font-semibold border shadow-md rounded-md px-2 flex gap-1">ADD {service.customizations.length > 0 ? <Plus /> : ""} </button>
+                         <button className="text-blue-200 font-semibold border shadow-md rounded-md px-2 flex gap-1">ADD {service?.customizations?.length > 0 ? <Plus /> : ""} </button>
                       </div>
 
                     </div>
