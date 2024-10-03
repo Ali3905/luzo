@@ -1,5 +1,5 @@
 'use client'
-import { Baby, ChevronDown, ChevronUp, Search } from "lucide-react";
+import { Baby, ChevronDown, ChevronUp, Plus, Search } from "lucide-react";
 import { useState } from "react";
 
 const MainContent = ({ selectedService, serviceData }) => {  
@@ -11,30 +11,30 @@ const MainContent = ({ selectedService, serviceData }) => {
 
     const serviceInfo = serviceData[selectedService] || {};  
 
-    const services = [
-      {
-        serviceName:'Nail Application',
-        name: "Get Polish",
-        icon: <Baby />,
-        price: "From 1000 + GST",
-        buttonText: "ADD"
-      },
-      {
-        serviceName:'Nail Application',
-        name: "Spa Treatment",
-        icon: <Baby />,  
-        price: "From 1500 + GST",
-        buttonText: "ADD"
-      },
-      {
-        serviceName:'Nail Application',
-        name: "Haircut",
-        icon: <Baby />,  // Replace with relevant icons for each service
-        price: "From 500 + GST",
-        buttonText: "ADD"
-      }
-      // Add more services as needed
-    ];
+    // const services = [
+    //   {
+    //     serviceName:'Nail Application',
+    //     name: "Get Polish",
+    //     icon: <Baby />,
+    //     price: "From 1000 + GST",
+    //     buttonText: "ADD"
+    //   },
+    //   {
+    //     serviceName:'Nail Application',
+    //     name: "Spa Treatment",
+    //     icon: <Baby />,  
+    //     price: "From 1500 + GST",
+    //     buttonText: "ADD"
+    //   },
+    //   {
+    //     serviceName:'Nail Application',
+    //     name: "Haircut",
+    //     icon: <Baby />,  // Replace with relevant icons for each service
+    //     price: "From 500 + GST",
+    //     buttonText: "ADD"
+    //   }
+    //   // Add more services as needed
+    // ];
   
     return (  
       <div className="w-3/4">  
@@ -55,13 +55,13 @@ const MainContent = ({ selectedService, serviceData }) => {
             </div>
            
             <div className="">
-                {services.map((service, index) => (
+                {selectedService.services.map((service, index) => (
                   <div key={index} className=" border-gray-500 border-b-4 border-b-gray-200">
                     <div 
                       className="flex justify-between items-center p-2 cursor-pointer" 
                       onClick={() => toggleDropdown(index)}
                     >
-                      {service.serviceName}
+                      {service.name}
                       {openIndex === index ? <ChevronUp /> : <ChevronDown />}
                     </div>
                     <div 
@@ -71,9 +71,10 @@ const MainContent = ({ selectedService, serviceData }) => {
                          <div>
                           <Baby/>
                           <p className="font-semibold ">{service.name}</p>
-                          <p className="text-[10px]">{service.price}</p>
+                          <p className="text-[10px]">{service.one_line_description}</p>
+                          <p className="text-[10px]">{service.display_rate}</p>
                          </div>
-                         <button className="text-blue-200 font-semibold border shadow-md rounded-md px-2">ADD</button>
+                         <button className="text-blue-200 font-semibold border shadow-md rounded-md px-2 flex gap-1">ADD {service.customizations.length > 0 ? <Plus /> : ""} </button>
                       </div>
 
                     </div>

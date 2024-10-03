@@ -1,8 +1,10 @@
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { serviceData } from "./ServiceData";
 
 const Sidebar = ({ onSelect }) => {
+  // const [services, setServices] = useState(serviceData.data.sub_categories)
   const [services, setServices] = useState([])
 
   const fetchServices = async() => {
@@ -12,7 +14,7 @@ const Sidebar = ({ onSelect }) => {
         baseURL: `${process.env.NEXT_PUBLIC_TEST_HOST}/api/v1`,
         url: "/salon/subCategories",
         params: {
-          main_category_id: 18,
+          main_category_id: 14,
           salon_id: 811
         }
       })
@@ -44,12 +46,12 @@ const Sidebar = ({ onSelect }) => {
       {services.map((service) => (
         <div key={service.name} className="mb-2 flex">
           <button
-            onClick={() => onSelect(service.name)}
+            onClick={() => onSelect(service)}
             className="flex text-[12px] text-center flex-col items-center w-full rounded hover:bg-gray-200"
           >
             <Image src="/img/icon.webp" alt="logo icon" width="50" height="50" className="rounded-full" />
 
-            <div className=" text-[12px] text-center sm:text-[18px]">{service.name} <span className="sm:text-[18px] text-center">({service.count})</span>  </div>
+            <div className=" text-[12px] text-center sm:text-[18px]">{service.name} <span className="sm:text-[18px] text-center">({service.services.length})</span>  </div>
           </button>
         </div>
       ))}
