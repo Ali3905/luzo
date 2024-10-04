@@ -1,11 +1,11 @@
 import axios from "axios";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { serviceData } from "./ServiceData";
+// import { serviceData } from "./ServiceData";
 
 const Sidebar = ({ onSelect }) => {
   // const [services, setServices] = useState(serviceData.data.sub_categories)
-  const [services, setServices] = useState(serviceData.data.sub_categories)
+  const [services, setServices] = useState([])
 
   const fetchServices = async() => {
     try {
