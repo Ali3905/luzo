@@ -14,7 +14,7 @@ const Sidebar = ({ onSelect }) => {
         baseURL: `${process.env.NEXT_PUBLIC_TEST_HOST}/api/v1`,
         url: "/salon/subCategories",
         params: {
-          main_category_id: 14,
+          main_category_id: 11,
           salon_id: 811
         }
       })
