@@ -1,15 +1,25 @@
 'use client'
 import { Baby, ChevronDown, ChevronUp, Plus, Search } from "lucide-react";
 import { useState } from "react";
+import BottomSheet from "./BottomSheet"
 
 const MainContent = ({ selectedService, serviceData }) => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
 
   const toggleDropdown = (index) => {
     setOpenIndex(openIndex === index ? null : index); // Toggle dropdown
   };
 
-  const serviceInfo = serviceData[selectedService] || {};
+  // const serviceInfo = serviceData[selectedService] || {};
 
   // const services = [
   //   {
@@ -74,7 +84,8 @@ const MainContent = ({ selectedService, serviceData }) => {
                       <p className="text-[10px]">{service.one_line_description}</p>
                       <p className="text-[10px]">{service.display_rate}</p>
                     </div>
-                    <button className="text-blue-200 font-semibold border shadow-md rounded-md px-2 flex gap-1">ADD {service?.customizations?.length > 0 ? <Plus /> : ""} </button>
+                    <button className="text-blue-200 font-semibold border shadow-md rounded-md px-2 flex gap-1" onClick={service?.customizations?.length > 0 ?handleOpen: ""}>ADD {service?.customizations?.length > 0 ? <Plus /> : ""} </button>
+                    <BottomSheet isOpen={isOpen} onClose={handleClose} service={service} />
                   </div>
 
                 </div>

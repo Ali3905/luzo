@@ -1031,6 +1031,9 @@ video {
 .max-w-\[90px\] {
   max-width: 90px;
 }
+.max-w-lg {
+  max-width: 32rem;
+}
 .max-w-md {
   max-width: 28rem;
 }
@@ -1265,6 +1268,10 @@ video {
 .rounded-b-lg {
   border-bottom-right-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+}
+.rounded-t-2xl {
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 .rounded-t-lg {
   border-top-left-radius: 0.5rem;

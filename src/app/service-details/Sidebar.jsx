@@ -5,7 +5,7 @@ import { serviceData } from "./ServiceData";
 
 const Sidebar = ({ onSelect }) => {
   // const [services, setServices] = useState(serviceData.data.sub_categories)
-  const [services, setServices] = useState([])
+  const [services, setServices] = useState(serviceData.data.sub_categories)
 
   const fetchServices = async() => {
     try {
