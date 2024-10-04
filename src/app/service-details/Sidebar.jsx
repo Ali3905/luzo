@@ -18,7 +18,7 @@ const Sidebar = ({ onSelect }) => {
           salon_id: 811
         }
       })
-      setServices(res.data.sub_categories)
+      setServices(res.data.data.sub_categories)
       console.log(res.data);
       
     } catch (error) {
