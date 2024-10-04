@@ -18,8 +18,8 @@ const BottomSheet = ({ isOpen, onClose, service }) => {
           <h3 className="font-semibold">{service.customizations?.[0]?.name}</h3>
           <p className="text-sm text-gray-500 mb-2">{service.customizations?.[0]?.instruction}</p>
           {
-            service.customizations?.[0]?.options?.map((ele) => {
-              return <div className="flex items-center justify-between border rounded-md px-2 py-2 mb-2">
+            service.customizations?.[0]?.options?.map((ele, i) => {
+              return <div className="flex items-center justify-between border rounded-md px-2 py-2 mb-2" key={i}>
                 <span>{ele.name}</span>
                 <span>From ₹ {ele.rate}</span>
                 <input type="radio" name="product" className="form-radio" />
