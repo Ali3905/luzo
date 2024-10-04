@@ -43,7 +43,7 @@ const Sidebar = ({ onSelect }) => {
 
   return (
     <div className="w-1/4 bg-gray-100 border-r-4 border-r-gray-200">
-      {services.map((service) => (
+      {services?.map((service) => (
         <div key={service.name} className="mb-2 flex">
           <button
             onClick={() => onSelect(service)}
