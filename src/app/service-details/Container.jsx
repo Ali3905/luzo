@@ -7,7 +7,7 @@ import MainContent from './MainContent'
 import { serviceData } from './ServiceData'
 
 const ServiceContainer = () => {
-    const [selectedService, setSelectedService] = useState('');
+    const [selectedService, setSelectedService] = useState(null);
     return (
       <div className='pt-[100px]'>
           <Navbar/>

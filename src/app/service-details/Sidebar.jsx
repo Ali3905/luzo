@@ -19,6 +19,8 @@ const Sidebar = ({ onSelect }) => {
         }
       })
       setServices(res.data.sub_categories)
+      console.log(res.data);
+      
     } catch (error) {
       console.log(error);
       alert("Could not fetch services")
