@@ -27,7 +27,7 @@
     "build/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/app/service-details/Container.jsx",
+    "src/app/partner-details/[id]/service-details/[serviceId]/Container.jsx",
     ".next/types/**/*.ts"
   ],
   "exclude": [
