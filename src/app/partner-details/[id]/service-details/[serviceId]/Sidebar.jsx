@@ -29,7 +29,7 @@ const Sidebar = ({ onSelect }) => {
 
       return (
         <div className='flex justify-center items-center w-full h-screen'>
-          {error.response?.status === 404 ? "Salon not found (404)" : "Could not load the salon info"}
+          {error.response?.status === 404 ? "Salon not found (404)" : "Could not load the salon details"}
         </div>
       )
     }
