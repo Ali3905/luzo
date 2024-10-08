@@ -75,9 +75,10 @@ const MainContent = () => {
                   {openIndex === index ? <ChevronUp /> : <ChevronDown />}
                 </div>
                 {
-                  service?.services?.map((ele) => {
+                  service?.services?.map((ele, i) => {
                     return <div
                       className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40' : 'max-h-0'}`}
+                      key={i}
                     >
                       <div className="p-2 flex items-center justify-between text-gray-600">
                         <div>
