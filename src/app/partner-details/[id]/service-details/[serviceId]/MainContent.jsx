@@ -3,10 +3,13 @@ import { ChevronDown, ChevronUp, Plus, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import BottomSheet from "./BottomSheet";
 import { useParams } from "next/navigation";
-import { serviceData } from "./ServiceData"; // Import local serviceData
+import { brands } from '../../../../all-partners/salonsData'
 import Image from "next/image";
 import { ShimmerThumbnail } from "react-shimmer-effects";
 import BottomSheet2 from './BottomSheet2'
+import axios from "axios";
+
+
 
 const MainContent = () => {
   const [openIndex, setOpenIndex] = useState(null);
@@ -15,6 +18,33 @@ const MainContent = () => {
   const [loading, setLoading] = useState(true);
   const { id, serviceId } = useParams();
   const [isDesktop, setIsDesktop] = useState(false);
+  const [salon, setSalon] = useState(null)
+
+  async function fetchData(salonName) {
+  
+    try {
+        const res = await axios.get(`${process.env.NEXT_PUBLIC_HOST}/api/v1/salonFamily/salonDetails?salonFamilyName=${encodeURIComponent(salonName)}`);
+        // console.log(id.split("-")[id.split("-").length - 1]);
+        const sal = res.data.data.salons.filter((ele)=>ele.id == id.split("-")[id.split("-").length - 1])[0]
+        console.log({sal});
+        
+        setSalon(sal);
+    } catch (error) {
+        console.error(error.message);
+        return null;
+    }
+  }
+  
+  function transformURLToString(input) {
+    // console.log(brands[input]);
+    return brands[input]
+  }
+
+  useEffect(()=>{
+    fetchData(transformURLToString(id.split("-")[0]))
+    console.log({salon});
+    
+  }, [])
 
   // Detect screen width and set openIndex on desktop
   useEffect(() => {
@@ -159,7 +189,7 @@ const MainContent = () => {
 
               {/* Render BottomSheet when customizations are available */}
               {selectedServiceId && selectedServiceId === ele.id && (
-                ele?.customizations?.length > 0 ? <BottomSheet isOpen={true} onClose={() => setSelectedServiceId(null)} service={ele} /> : <BottomSheet2 isOpen={true} onClose={() => setSelectedServiceId(null)} service={ele} />
+                ele?.customizations?.length > 0 ? <BottomSheet isOpen={true} onClose={() => setSelectedServiceId(null)} service={ele} salon={salon} /> : <BottomSheet2 isOpen={true} onClose={() => setSelectedServiceId(null)} service={ele} salon={salon} />
               )}
 
               {/* Render BottomSheet2 as a popup when there are no customizations */}

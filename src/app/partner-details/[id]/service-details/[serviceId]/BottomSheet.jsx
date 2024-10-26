@@ -2,8 +2,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-const BottomSheet = ({ isOpen, onClose, service }) => {
+const BottomSheet = ({ isOpen, onClose, service, salon }) => {
   if (!isOpen) return null;
+
+  
 
   return (
     <div className="fixed inset-0 flex justify-center items-end bg-black bg-opacity-5">
@@ -50,7 +52,7 @@ const BottomSheet = ({ isOpen, onClose, service }) => {
 
          
         </div>
-        <Link href={"/loading"}>
+        <Link href={salon?.salon_share_link || "#"}>
           <button className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
             Download app
           </button>
