@@ -29,9 +29,9 @@ const BottomSheet2 = ({ isOpen, onClose, service, salon }) => {
         
         <div className="p-4">
           <p className='text-[12px] text-center pb-4'>To book your appointment, download the LUZO app</p>
-          <Link href={"https://www.youtube.com/"}>
+          <Link href={salon?.salon_share_link}>
           <button className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
-            Download app
+            {/* Download app */}{salon?.salon_share_link}
           </button>
           </Link>
         </div>

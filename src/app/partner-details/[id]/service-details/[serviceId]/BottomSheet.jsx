@@ -51,9 +51,9 @@ const BottomSheet = ({ isOpen, onClose, service, salon }) => {
 
          
         </div>
-        <Link href={"https://www.youtube.com/"}>
+        <Link href={salon?.salon_share_link}>
           <button className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
-            Download app
+            {/* Download app */}{salon?.salon_share_link}
           </button>
           </Link>
       </div>
