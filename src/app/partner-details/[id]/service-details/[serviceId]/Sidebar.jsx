@@ -23,7 +23,6 @@ const Sidebar = ({ onSelect }) => {
 
       const services = res.data?.data?.services;
       setSalonInfoServices(services);
-
       // Set the default service as selected (first one in the list) if serviceId isn't in the URL
       if (services && services.length > 0 && !serviceId) {
         router.push(`/partner-details/${id}/service-details/service-${services[0].id}`);
@@ -47,16 +46,15 @@ const Sidebar = ({ onSelect }) => {
   return (
     <div className="w-1/4 bg-gray-100 py-5 border-r-4 border-r-gray-200">
       {salonInfoServices?.map((service) => (
-        <div
-          key={service.id}
-          className={`mb-2 flex cursor-pointer ${
-            serviceId === `service-${service.id}` ? 'bg-blue-200' : ''
-          }`} // Compare URL param to highlight selected service
-          onClick={() => handleServiceClick(service)} // Set service as selected on click
-        >
-          <button className="flex text-[12px] text-center flex-col items-center w-full rounded hover:bg-gray-200">
+          <div
+                key={service.id}
+                className={`mb-2 flex cursor-pointer py-1 ${serviceId === `service-${service.id}` ? 'bg-blue-200 border-r-4 border-r-gray-400' : ''}`} // Add background and border conditionally
+                onClick={() => handleServiceClick(service)} // Set service as selected on click
+              >
+      
+          <button className="flex text-[12px]  text-center flex-col items-center w-full rounded ">
             <Image src={service?.image_url} alt="logo icon" width="50" height="50" className="rounded-full" />
-            <div className="text-[12px] text-center sm:text-[18px]">
+            <div className="text-[12px] text-center sm:text-[16px]">
               {service.name}
             </div>
           </button>

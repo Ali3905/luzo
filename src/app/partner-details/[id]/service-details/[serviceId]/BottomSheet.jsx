@@ -1,5 +1,6 @@
 "use client"
 import { useState } from 'react';
+import Link from 'next/link';
 
 const BottomSheet = ({ isOpen, onClose, service }) => {
   if (!isOpen) return null;
@@ -13,7 +14,12 @@ const BottomSheet = ({ isOpen, onClose, service }) => {
             &#10005;
           </button>
         </div>
-        <p className="text-gray-500 mb-2 bg-white p-2 rounded-xl">{service.one_line_description}</p>
+        {service.one_line_description && (
+          <p className="text-gray-500 mb-2 bg-white p-2 rounded-xl">
+            {service.one_line_description}
+          </p>
+        )}
+
         <div className="mb-4 bg-white p-2 rounded-xl">
         <div className='flex justify-between items-center'>
           <div>
@@ -32,8 +38,9 @@ const BottomSheet = ({ isOpen, onClose, service }) => {
                 <span>{ele.name}</span>
                 {/* Container for rate and radio button */}
                 <div className="flex items-center justify-end gap-2">
-                  <span className="text-sm text-gray-500">From ₹ {ele.rate}</span>
-                  <input type="radio" name="product" className="form-radio" />
+                   <span className="text-sm text-gray-500">From ₹ {Math.floor(ele.rate)}</span>
+
+                  {/* <input type="radio" name="product" className="form-radio" /> */}
                 </div>
               </div>
             );
@@ -43,9 +50,11 @@ const BottomSheet = ({ isOpen, onClose, service }) => {
 
          
         </div>
-        <button className="bg-blue-500 text-white w-full py-2 rounded-md font-semibold">
-          Add Service
-        </button>
+        <Link href={"/loading"}>
+          <button className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
+            Download app
+          </button>
+          </Link>
       </div>
     </div>
   );

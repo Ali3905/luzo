@@ -133,5 +133,7 @@ export const brands = {
     "lakme": "Lakme",
     "a1-nail-art-studio": "A1 Nail Art Studio",
     "nail-edition": "Nail Edition",
-    "dreadley-dreadlocks": "Dreadley Dreadlocks"
+    "dreadley-dreadlocks": "Dreadley Dreadlocks",
+    "fingertips": "Fingertips",
+    "truefitt-and-hill": "Truefitt & Hill",
   };

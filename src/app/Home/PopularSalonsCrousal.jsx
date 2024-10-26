@@ -54,6 +54,11 @@ const PopularSalonsCrousal = () => {
             imgSrc: '/Final_Logos/Bodycraft.png'
         },
         {
+            name: 'Fingertips',
+            href: '/salon/Fingertips',
+            imgSrc: '/fingertips.png'
+        },
+        {
             name: 'Looks Salon',
             href: '/salon/Looks',
             imgSrc: '/luzologo/3.png'

@@ -40,6 +40,10 @@ const SalonCrousal = () => {
             { href: '/salon/Juice', imgSrc: '/Final_Logos/Juice.png' },
         ],
         [
+            { href: '/salon/Fingertips', imgSrc: '/Fingertips.png' },
+            { href: '/salon/Truefitt & Hill', imgSrc: '/truefit.png' },
+        ],
+        [
             { href: '/salon/Aveda x Nykaa', imgSrc: '/Final_Logos/Aveda x Nykaa.png'},
             { href: '/salon/JCB (Jean-Claude Biguine)', imgSrc: '/Final_Logos/JCB.png' },
         ],

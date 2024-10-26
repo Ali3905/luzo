@@ -4,7 +4,7 @@ import React, {useState} from 'react'
 import Sidebar from './Sidebar'
 import MainContent from './MainContent'
 
-import { serviceData } from './ServiceData'
+// import { serviceData } from './ServiceData'
 
 const ServiceContainer = () => {
     const [selectedService, setSelectedService] = useState(null);
@@ -13,7 +13,7 @@ const ServiceContainer = () => {
           <Navbar/>
           <div className='flex sm:px-[100px]' >
                   <Sidebar onSelect={setSelectedService} />  
-                  <MainContent selectedService={selectedService} serviceData={serviceData} />  
+                  <MainContent selectedService={selectedService} serviceData={selectedService} />  
           </div>
           <Footer/>
       </div>
