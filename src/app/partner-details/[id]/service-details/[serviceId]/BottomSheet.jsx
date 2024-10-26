@@ -1,5 +1,4 @@
 "use client"
-import Link from 'next/link';
 
 const BottomSheet = ({ isOpen, onClose, service, salon }) => {
   if (!isOpen) return null;
@@ -51,9 +50,14 @@ const BottomSheet = ({ isOpen, onClose, service, salon }) => {
 
 
         </div>
-        <Link href={salon?.salon_share_link} className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
-          {/* Download app */}{salon?.salon_share_link}
-        </Link>
+        <a
+          href={salon?.salon_share_link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold"
+        >
+          Download App
+        </a>
       </div>
     </div>
   );

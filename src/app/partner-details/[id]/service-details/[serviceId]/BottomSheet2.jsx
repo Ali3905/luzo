@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import Image from 'next/image';
-import Link from 'next/link';
 
 const BottomSheet2 = ({ isOpen, onClose, service, salon }) => {
 
@@ -28,9 +27,14 @@ const BottomSheet2 = ({ isOpen, onClose, service, salon }) => {
 
         <div className="p-4">
           <p className='text-[12px] text-center pb-4'>To book your appointment, download the LUZO app</p>
-          <Link href={salon?.salon_share_link} className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
-            {/* Download app */}{salon?.salon_share_link}
-          </Link>
+          <a
+          href={salon?.salon_share_link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold"
+        >
+          Download App
+        </a>
         </div>
 
       </div>
