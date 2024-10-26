@@ -3,8 +3,6 @@
 const BottomSheet = ({ isOpen, onClose, service, salon }) => {
   if (!isOpen) return null;
 
-
-
   return (
     <div className="fixed inset-0 flex justify-center items-end bg-black bg-opacity-5">
       <div className="bg-gray-200 w-full max-w-lg rounded-t-2xl p-4">
@@ -56,7 +54,9 @@ const BottomSheet = ({ isOpen, onClose, service, salon }) => {
           rel="noopener noreferrer"
           className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold"
         >
-          Download App
+          <button className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
+            Download app
+          </button>
         </a>
       </div>
     </div>
