@@ -1,5 +1,4 @@
 "use client"
-import { useState } from 'react';
 import Link from 'next/link';
 
 const BottomSheet = ({ isOpen, onClose, service, salon }) => {
@@ -52,7 +51,7 @@ const BottomSheet = ({ isOpen, onClose, service, salon }) => {
 
          
         </div>
-        <Link href={salon?.salon_share_link}>
+        <Link href={"https://www.youtube.com/"}>
           <button className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
             Download app
           </button>
