@@ -4,7 +4,7 @@ import Link from 'next/link';
 const BottomSheet = ({ isOpen, onClose, service, salon }) => {
   if (!isOpen) return null;
 
-  
+
 
   return (
     <div className="fixed inset-0 flex justify-center items-end bg-black bg-opacity-5">
@@ -22,40 +22,38 @@ const BottomSheet = ({ isOpen, onClose, service, salon }) => {
         )}
 
         <div className="mb-4 bg-white p-2 rounded-xl">
-        <div className='flex justify-between items-center'>
-          <div>
+          <div className='flex justify-between items-center'>
+            <div>
               <h3 className="font-semibold px-2">{service.customizations?.[0]?.name}</h3>
               <p className="text-sm text-gray-500 mb-2 px-2">{service.customizations?.[0]?.instruction}</p>
+            </div>
+            <button className='bg-gray-300 py-1 text-[12px] rounded-md px-2 text-gray-500'>
+              Required
+            </button>
           </div>
-          <button className='bg-gray-300 py-1 text-[12px] rounded-md px-2 text-gray-500'>
-               Required
-          </button>
-        </div>
-        {
-          service.customizations?.[0]?.options?.map((ele, i) => {
-            return (
-              <div className="grid grid-cols-2 items-center rounded-md px-2 py-2" key={i}>
-                {/* Service Name */}
-                <span>{ele.name}</span>
-                {/* Container for rate and radio button */}
-                <div className="flex items-center justify-end gap-2">
-                   <span className="text-sm text-gray-500">From ₹ {Math.floor(ele.rate)}</span>
+          {
+            service.customizations?.[0]?.options?.map((ele, i) => {
+              return (
+                <div className="grid grid-cols-2 items-center rounded-md px-2 py-2" key={i}>
+                  {/* Service Name */}
+                  <span>{ele.name}</span>
+                  {/* Container for rate and radio button */}
+                  <div className="flex items-center justify-end gap-2">
+                    <span className="text-sm text-gray-500">From ₹ {Math.floor(ele.rate)}</span>
 
-                  {/* <input type="radio" name="product" className="form-radio" /> */}
+                    {/* <input type="radio" name="product" className="form-radio" /> */}
+                  </div>
                 </div>
-              </div>
-            );
-          })
-        }
+              );
+            })
+          }
 
 
-         
+
         </div>
-        <Link href={salon?.salon_share_link}>
-          <button className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
-            {/* Download app */}{salon?.salon_share_link}
-          </button>
-          </Link>
+        <Link href={salon?.salon_share_link} className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
+          {/* Download app */}{salon?.salon_share_link}
+        </Link>
       </div>
     </div>
   );
