@@ -41,7 +41,7 @@ const SalonCrousal = () => {
         ],
         [
             { href: '/salon/Fingertips', imgSrc: '/Fingertips.png' },
-            { href: '/salon/Truefitt & Hill', imgSrc: '/truefit.png' },
+            { href: '/salon/Truefitt & Hill', imgSrc: '/Truefitt.png' },
         ],
         [
             { href: '/salon/Aveda x Nykaa', imgSrc: '/Final_Logos/Aveda x Nykaa.png'},

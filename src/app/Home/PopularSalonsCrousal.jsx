@@ -56,7 +56,12 @@ const PopularSalonsCrousal = () => {
         {
             name: 'Fingertips',
             href: '/salon/Fingertips',
-            imgSrc: '/fingertips.png'
+            imgSrc: '/Fingertips.png'
+        },
+        {
+            name: 'Truefitt & Hill',
+            href: '/salon/Truefitt & Hill',
+            imgSrc: '/Truefitt.png'
         },
         {
             name: 'Looks Salon',

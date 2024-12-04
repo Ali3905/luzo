@@ -1,19 +1,31 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, {useRef, useState } from 'react'
 import Checkbox from '../../components/Checkbox'
 import Radio from '../../components/Radio'
 import axios from 'axios'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import Swal from 'sweetalert2'
+import ReCAPTCHA from "react-google-recaptcha";
+
+
 
 const Form = () => {
   const { register, watch, handleSubmit, setValue, reset, formState: { errors, isSubmitting }, control } = useForm()
   const gstRegisteredValue = watch('gst_registered');
   // const gstPercentageValue = watch('gst_percentage');
   const otherNotesValue = watch('other_notes');
+  const [recaptchaValue, setRecaptchaValue] = useState('');
+  const captchaRef = useRef()
+
+  
+  const SITE_KEY = '6LcCto0qAAAAAJxmYSdAFxUJzVeXBKkpDb9u4tiR';
+
 
   const Submit = async (data) => {
+    data.preventDefault();
+    captchaRef.current.reset();
+
     if (gstRegisteredValue === "No") {
       data.gst_percentage = "0"; // Set GST percentage to 0 when 'No' is selected
     }
@@ -27,6 +39,7 @@ const Form = () => {
         method: "post",
         url: `${process.env.NEXT_PUBLIC_HOST}/api/v1/create/lead`,
         data: {...data, contact_established:'yes' },
+        recaptchaValue,
 
       })
       // console.log(res);
@@ -44,6 +57,10 @@ const Form = () => {
       alert("Could not add lead")
     }
   };
+
+  const onChange = value => {
+    setRecaptchaValue(value);
+  }
 
   const formFields = [
     { name: 'salon_contacts[0].contact_name', label: 'Your Name*', type: 'text', validtion: { required: "Your name is required" } },
@@ -244,6 +261,15 @@ const Form = () => {
 
           </div>
         ))}
+
+        <div>
+          <ReCAPTCHA
+            sitekey={SITE_KEY}
+            onChange={onChange}
+            ref={captchaRef}
+          />
+
+        </div>
 
         <button type="submit" className='bg-[#72B5EC] text-white font-semibold text-[16px] px-[50px] py-[15px] w-full sm:w-[70%] rounded-lg flex justify-center'>
           {

@@ -1,0 +1,8 @@
+{
+  "/page": "app/page.js",
+  "/partner-details/[id]/page": "app/partner-details/[id]/page.js",
+  "/partner-details/[id]/service-details/[serviceId]/page": "app/partner-details/[id]/service-details/[serviceId]/page.js",
+  "/partner-details/[id]/service-details/[serviceId]/cart/page": "app/partner-details/[id]/service-details/[serviceId]/cart/page.js",
+  "/partner-details/[id]/service-details/[serviceId]/cart/offers/page": "app/partner-details/[id]/service-details/[serviceId]/cart/offers/page.js",
+  "/salon/[salonName]/page": "app/salon/[salonName]/page.js"
+}

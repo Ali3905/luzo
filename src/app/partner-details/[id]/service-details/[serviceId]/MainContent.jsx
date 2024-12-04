@@ -1,24 +1,40 @@
 'use client'
-import { ChevronDown, ChevronUp, Plus, Search } from "lucide-react";
-import { useEffect, useState } from "react";
+import { ChevronDown, ChevronUp, Plus, Search, CircleX } from "lucide-react";
+import { useContext, useEffect, useState } from "react";
 import BottomSheet from "./BottomSheet";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { brands } from '../../../../all-partners/salonsData'
 import Image from "next/image";
 import { ShimmerThumbnail } from "react-shimmer-effects";
 import BottomSheet2 from './BottomSheet2'
 import axios from "axios";
+import { serviceData } from "./ServiceData";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart } from "../../../../../redux/cartSlice";
 
 
 
 const MainContent = () => {
   const [openIndex, setOpenIndex] = useState(null);
   const [selectedServiceId, setSelectedServiceId] = useState(null);
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState(serviceData.data.sub_categories);
   const [loading, setLoading] = useState(true);
   const { id, serviceId } = useParams();
   const [isDesktop, setIsDesktop] = useState(false);
+  const [showCartModal, setShowCartModal] = useState(false)
   const [salon, setSalon] = useState(null)
+  const [addedServices, setAddedServices] = useState([]);
+  const dispatch = useDispatch()
+  const cart = useSelector(state => state.cart.cart)
+
+  const router = useRouter()
+
+  // useEffect(()=>{
+  //   setTimeout(() => {
+  //     setShowCartModal(false)
+  //   }, 2000)
+  // }, [showCartModal])
+
 
   async function fetchData(salonName) {
 
@@ -42,8 +58,6 @@ const MainContent = () => {
 
   useEffect(() => {
     fetchData(transformURLToString(id.split("-")[0]))
-    console.log({ salon });
-
   }, [])
 
   // Detect screen width and set openIndex on desktop
@@ -87,20 +101,28 @@ const MainContent = () => {
     }
   };
 
+  const isServiceAddedInCart = (serviceId) => {
+    const addedService = cart.filter((ele) => ele.id === serviceId)
+    console.log({addedService, cart, serviceId});
+    
+    return addedService.length > 0 ? true : false
+  }
+
   useEffect(() => {
     fetchServices(); // Fetch data on mount
   }, []);
 
+  // const handleAddService = (service) => {
+  //   if (!addedServices.some((item) => item.id === service.id)) {
+  //     setAddedServices((prev) => [...prev, service]);
+  //   }
+  // };
+
   return (
-    <div className="w-3/4 ">
+    <div className="w-3/4">
       {loading ? (
         Array.from({ length: 4 }).map((_, index) => (
-          <ShimmerThumbnail
-            key={index}
-            height={100}
-            rounded
-            className={"shimmer"}
-          />
+          <ShimmerThumbnail key={index} height={100} rounded className={"shimmer"} />
         ))
       ) : (
         services && (
@@ -115,109 +137,163 @@ const MainContent = () => {
             </div>
             <div className="flex mt-2 mx-2 sm:justify-start justify-between gap-2">
               <button className="border rounded-md px-8 flex items-center gap-2">
-                <Image src='/Men.svg' alt='img' width={12} height={12} style={{ filter: 'invert(16%) sepia(100%) saturate(7499%) hue-rotate(232deg) brightness(96%) contrast(119%)' }} /> Men
+                <Image src="/Men.svg" alt="img" width={12} height={12} /> Men
               </button>
               <button className="border rounded-md px-8 flex items-center gap-2">
-                <Image src='/Women.svg' alt='img' width={12} height={12} style={{ filter: 'invert(16%) sepia(100%) saturate(7499%) hue-rotate(232deg) brightness(96%) contrast(119%)' }} /> Women
+                <Image src="/Women.svg" alt="img" width={12} height={12} /> Women
               </button>
-
-
             </div>
 
             <div className="mt-2">
-              {services?.filter(service => service && service.name).map((service, index) => (
-                <div key={index} className="border-gray-500 border-b-4 border-b-gray-200 py-2">
+              {services?.filter((service) => service && service.name).map((service, index) => (
+                <div
+                  key={index}
+                  className="border-gray-500 border-b-4 border-b-gray-200 py-2"
+                >
                   <div
                     className="flex justify-between items-center p-2 cursor-pointer"
                     onClick={() => toggleDropdown(index)}
                   >
-                    {/* Display service name and count of services */}
                     {service.name} ({service?.services?.length || 0})
                     {openIndex === index ? <ChevronUp /> : <ChevronDown />}
                   </div>
 
                   <div className="sm:flex sm:items-center sm:justify-start sm:flex-wrap sm:rounded-md text-gray-600 md:flex md:flex-row md:flex-wrap">
-                    {service?.services?.filter(ele => ele && ele.name).map((ele, i) => (
-                      <div
-                        key={i}
-                        className={`overflow-hidden transition-all duration-300 ${openIndex === index ? 'max-h-40' : 'max-h-0'} md:border-b-0 md:mx-0 px-1`}
-                      >
+                    {service?.services
+                      ?.filter((ele) => ele && ele.name)
+                      .map((ele, i) => (
                         <div
-                          className={`p-2 flex items-center sm:mx-2 sm:m-1 sm:justify-start sm:gap-8 ${i < service.services.length - 1 ? 'border-b' : ''
-                            } sm:border sm:flex-wrap sm:rounded-md justify-between text-gray-600`}
+                          key={i}
+                          className={`overflow-hidden transition-all duration-300 ${openIndex === index ? "max-h-40" : "max-h-0"
+                            } md:border-b-0 md:mx-0 px-1`}
                         >
-                          <div>
-                            {ele.gender === "Women" ? (
-                              <Image
-                                src='/Women.svg'
-                                alt='img'
-                                width={15}
-                                height={15}
-                                style={{ filter: 'invert(16%) sepia(100%) saturate(7499%) hue-rotate(232deg) brightness(96%) contrast(119%)' }}
-                              />
-                            ) : ele.gender === "Men" ? (
-                              <Image
-                                src='/Men.svg'
-                                alt='img'
-                                width={12}
-                                height={12}
-                                style={{ filter: 'invert(16%) sepia(100%) saturate(7499%) hue-rotate(232deg) brightness(96%) contrast(119%)' }}
-                              />
-                            ) : (
-                              <Image src='/Unisex.svg' alt='img' width={12} height={12} />
-                            )}
-                            <p className="font-medium text-[#000]">{ele.name}</p>
-                            {ele.one_line_description && (
-                              <p className="text-[11px] flex max-w-[80%] text-gray-500">{ele.one_line_description}</p>
-                            )}
-                            {ele.display_rate && (
-                              <p className="text-[11px] font-medium text-[#000]">From ₹ {Math.round(ele.display_rate)} {ele.is_gst_included ? "is_gst_included" : ""}</p>
+                          <div
+                            className={`p-2 flex items-center sm:mx-2 sm:m-1 sm:justify-start sm:gap-8 ${i < service.services.length - 1 ? "border-b" : ""
+                              } sm:border sm:flex-wrap sm:rounded-md justify-between text-gray-600`}
+                          >
+                            <div>
+                              {ele.gender === "Women" ? (
+                                <Image src="/Women.svg" alt="img" width={15} height={15} />
+                              ) : ele.gender === "Men" ? (
+                                <Image
+                                  src="/Men.svg"
+                                  alt="img"
+                                  width={12} height={12}
+                                  className="text-yellow-300"
+                                />
+                              ) : (
+                                <Image src="/Unisex.svg" alt="img" width={12} height={12} />
+                              )}
+                              <p className="font-medium text-[#000]">{ele.name}</p>
+                              {ele.one_line_description && (
+                                <p className="text-[11px] flex max-w-[80%] text-gray-500">
+                                  {ele.one_line_description}
+                                </p>
+                              )}
+                              {ele.display_rate && (
+                                <p className="text-[11px] font-medium text-[#000]">
+                                  From ₹{" "}
+                                  {Math.round(ele.display_rate).toLocaleString("en-IN")}{" "}
+                                  {ele.is_gst_included ? "GST Included" : ""}
+                                </p>
+                              )}
+                            </div>
+
+                            {/* Add to Cart Button */}
+                            <button
+                              className={`${isServiceAddedInCart(ele.id) ? "text-white bg-blue-400" : "bg-white text-blue-400"} text-[14px] sm:text-[14px] items-center font-semibold border shadow-md rounded-md px-2 flex gap-1`}
+                              onClick={() => {
+                                if (!ele?.customizations?.length) {
+                                  dispatch(addToCart(service))
+                                } else {
+                                  // If customizations are present, show BottomSheet
+                                  if(isServiceAddedInCart(ele.id)){
+                                    dispatch(removeFromCart(ele.id))
+                                  } else {
+                                    setSelectedServiceId(ele.id);
+                                  }
+                                }
+                              }}
+                            >
+                              {isServiceAddedInCart(ele.id) ? "ADDED" : "ADD"}{!isServiceAddedInCart(ele.id) && ele?.customizations?.length > 0  ? <Plus size={14} /> : ""}
+                            </button>
+
+                            {/* Render BottomSheet for Customizations */}
+                            {selectedServiceId && selectedServiceId === ele.id && (
+                              ele?.customizations?.length > 0 ? (
+                                <BottomSheet
+                                  isOpen={true}
+                                  onClose={() => {
+                                    setSelectedServiceId(null)
+                                    setShowCartModal(true)
+                                  }}
+                                  service={ele}
+                                  salon={salon}
+                                />
+                              ) : (
+                                <BottomSheet2
+                                  isOpen={true}
+                                  onClose={() => setSelectedServiceId(null)}
+                                  service={ele}
+                                  salon={salon}
+                                />
+                              )
                             )}
                           </div>
-                          <button
-                            className="text-blue-400  text-[12px] sm:text-[14px]  items-center font-semibold border shadow-md rounded-md px-2 flex gap-1"
-                            onClick={() =>
-                              // ele?.customizations?.length > 0
-                              // ? 
-                              setSelectedServiceId(ele.id)
-                              // : setSelectedServiceId('no-customizations')
-                            }
-                          >
-                            ADD {ele?.customizations?.length > 0 && <Plus size={12} />}
-                          </button>
-
-                          {/* Render BottomSheet when customizations are available */}
-                          {selectedServiceId && selectedServiceId === ele.id && (
-                            ele?.customizations?.length > 0 ? <BottomSheet isOpen={true} onClose={() => setSelectedServiceId(null)} service={ele} salon={salon} /> : <BottomSheet2 isOpen={true} onClose={() => setSelectedServiceId(null)} service={ele} salon={salon} />
-                          )}
-
-                          {/* Render BottomSheet2 as a popup when there are no customizations */}
-                          {selectedServiceId === 'no-customizations' && (
-                            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-                              <div className="bg-white p-4 rounded-lg shadow-lg w-3/4 max-w-md">
-                                <button
-                                  className="absolute top-2 right-2 text-gray-600"
-                                  onClick={() => setSelectedServiceId(null)}
-                                >
-                                  ✕
-                                </button>
-                                <BottomSheet2 isOpen={true} onClose={() => setSelectedServiceId(null)} service={ele} />
-                              </div>
-                            </div>
-                          )}
                         </div>
-                      </div>
-                    ))}
+                      ))}
                   </div>
                 </div>
               ))}
             </div>
-
-
           </div>
         )
       )}
+
+      {/* <button
+        className="bg-blue-400 text-white px-4 py-2"
+        onClick={() =>
+          router.push(`/partner-details/${id}/service-details/${serviceId}/cart`)
+        }
+      >
+        Go To Cart Page
+      </button> */}
+
+      {/* Add to Cart Section */}
+      {/* Add to Cart Section */}
+      {showCartModal && !selectedServiceId && (
+        <div className="fixed bottom-2 mx-4 left-0 right-0 w-auto rounded-xl bg-white border-gray-600 p-2 shadow-2xl">
+          <div className="flex justify-between items-center mb-2">
+            <span>
+              <p className="font-bold capitalize">{id.split("-")[0]}</p>
+              <p>{cart?.length || 0} item</p>
+            </span>
+            <div className="flex items-center gap-2">
+              <button
+                className="bg-blue-400 rounded-2xl text-white px-4 py-2 mt-2"
+                onClick={() =>
+                  router.push(`/partner-details/${id}/service-details/${serviceId}/cart`)
+                }
+              >
+                View Cart
+              </button>
+
+              <button
+                className="text-red-400 text-sm font-semibold"
+                onClick={() => setShowCartModal(false)}
+              >
+                <CircleX />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+
+
+
     </div>
+
   );
 };
 

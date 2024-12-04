@@ -43,7 +43,8 @@ const Navbar = () => {
                label : "Careers",
                value : "careers",
                link : "/careers"
-          },
+          }
+          
      ]
 
      useEffect(() => {
