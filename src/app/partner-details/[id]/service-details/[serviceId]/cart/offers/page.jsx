@@ -3,7 +3,7 @@ import Navbar from '../../../../../../../components/Navbar'
 import Footer from '../../../../../../../components/Footer'
 // import OfferCard from './OfferCard'
 import axios from 'axios'
-import { offerData } from '../../ServiceData'
+// import { offerData } from '../../ServiceData'
 import OfferList from "./OfferList"
 
 const fetchOffers = async (id) => {
@@ -30,8 +30,8 @@ const fetchOffers = async (id) => {
 
 const page = async ({ params, searchParams }) => {
   const { id } = params
-  // const offers = await fetchOffers(id)
-  const offers = offerData.data.salons.luzo_offers
+  const offers = await fetchOffers(id)
+  // const offers = offerData.data.salons.luzo_offers
   return (
     <div>
       <Navbar />

@@ -1776,7 +1776,7 @@ export const offerData = {
                                             "salon_id": 16,
                                             "title": "Get 30% OFF via LUZO",
                                             "code": "AVAIL30",
-                                            "description": "20% Discount + 10% Cashback\nAfter availing your services, pay at the salon using LUZO app via any mode of online payment and get 20% Discount & 10% Cashback as LUZO Cash on the net payable amount.",
+                                            "description": "20% Discount + 10% Cashback\nAfter availing your services,  and get 20% Discount & 10% Cashback as LUZO Cash on the net payable amount.",
                                             "discount_percentage": 20,
                                             "cashback_percentage": 10,
                                             "luzo_offers_terms_and_conditions": [
@@ -1918,304 +1918,296 @@ export const offerData = {
                                             ]
                                     },
                                     {
-                                            "id": 1933,
-                                            "salon_id": 16,
-                                            "title": "GET 40% OFF via LUZO",
-                                            "code": "FIRST40",
-                                            "description": "30% Discount + 10% Cashback\nAfter availing your services, pay at the salon using LUZO app via any mode of online payment and get 30% Discount & 10% Cashback as LUZO Cash on the net payable amount.",
-                                            "discount_percentage": 30,
-                                            "cashback_percentage": 10,
-                                            "luzo_offers_terms_and_conditions": [
-                                                    {
-                                                            "id": 14169,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "Cannot be clubbed with any other offer, membership, packages or product purchase",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14170,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "Valid on your first appointment only",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14171,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "Valid only on online payments made via LUZO",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14172,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "Offer is applicable on the amount given by the salon including GST at the time of billing",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14173,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "LUZO Cash shall be deducted from the original bill amount before discount",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14174,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "GST as applicable at the salon",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14175,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "Offer is valid till 31st December, 2024",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14176,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "Offer is applicable on all days",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 30227,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "Prior appointment booking on the LUZO app is mandatory",
-                                                            "created_at": null,
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 32274,
-                                                            "luzo_offer_id": 1933,
-                                                            "term_and_condition": "No refund can be issued from LUZO after you have availed the service. LUZO app helps you to book your appointment and make the payment with offers.",
-                                                            "created_at": null,
-                                                            "updated_at": null
-                                                    }
-                                            ],
-                                            "luzo_offers_validities": [
-                                                    {
-                                                            "id": 13525,
-                                                            "luzo_offer_id": 1933,
-                                                            "working_day": "Monday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13526,
-                                                            "luzo_offer_id": 1933,
-                                                            "working_day": "Tuesday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13527,
-                                                            "luzo_offer_id": 1933,
-                                                            "working_day": "Wednesday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13528,
-                                                            "luzo_offer_id": 1933,
-                                                            "working_day": "Thursday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13529,
-                                                            "luzo_offer_id": 1933,
-                                                            "working_day": "Friday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13530,
-                                                            "luzo_offer_id": 1933,
-                                                            "working_day": "Saturday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13531,
-                                                            "luzo_offer_id": 1933,
-                                                            "working_day": "Sunday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    }
-                                            ]
-                                    },
-                                    {
-                                            "id": 1934,
-                                            "salon_id": 16,
-                                            "title": "GET 35% OFF via LUZO",
-                                            "code": "GET35",
-                                            "description": "25% Discount + 10% Cashback\nAfter availing your services, pay at the salon using LUZO app via any mode of online payment and get 25% Discount & 10% Cashback as LUZO Cash on the net payable amount.",
-                                            "discount_percentage": 25,
-                                            "cashback_percentage": 10,
-                                            "luzo_offers_terms_and_conditions": [
-                                                    {
-                                                            "id": 14177,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "Cannot be clubbed with any other offer, membership, packages or product purchase",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14178,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "Valid only on online payments made via LUZO",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14179,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "Offer is applicable on the amount given by the salon including GST at the time of billing",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14180,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "LUZO Cash shall be deducted from the original bill amount before discount",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14181,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "GST as applicable at the salon",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14182,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "Offer is valid till 31st December, 2024",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 14183,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "Offer is applicable on all days",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 30228,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "Prior appointment booking on the LUZO app is mandatory",
-                                                            "created_at": null,
-                                                            "updated_at": null
-                                                    },
-                                                    {
-                                                            "id": 32275,
-                                                            "luzo_offer_id": 1934,
-                                                            "term_and_condition": "No refund can be issued from LUZO after you have availed the service. LUZO app helps you to book your appointment and make the payment with offers.",
-                                                            "created_at": null,
-                                                            "updated_at": null
-                                                    }
-                                            ],
-                                            "luzo_offers_validities": [
-                                                    {
-                                                            "id": 13532,
-                                                            "luzo_offer_id": 1934,
-                                                            "working_day": "Monday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13533,
-                                                            "luzo_offer_id": 1934,
-                                                            "working_day": "Tuesday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13534,
-                                                            "luzo_offer_id": 1934,
-                                                            "working_day": "Wednesday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13535,
-                                                            "luzo_offer_id": 1934,
-                                                            "working_day": "Thursday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13536,
-                                                            "luzo_offer_id": 1934,
-                                                            "working_day": "Friday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13537,
-                                                            "luzo_offer_id": 1934,
-                                                            "working_day": "Saturday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    },
-                                                    {
-                                                            "id": 13538,
-                                                            "luzo_offer_id": 1934,
-                                                            "working_day": "Sunday",
-                                                            "working_hours": "",
-                                                            "created_at": "2023-10-24T01:57:02.000000Z",
-                                                            "updated_at": null,
-                                                            "start_time": "00:01:00",
-                                                            "end_time": "23:59:59"
-                                                    }
-                                            ]
-                                    }
+                                                "id": 1935,
+                                                "salon_id": 16,
+                                                "title": "Get 30% OFF via LUZO",
+                                                "code": "AVAIL30",
+                                                "description": "20% Discount + 10% Cashback\nAfter availing your services,  and get 20% Discount & 10% Cashback as LUZO Cash on the net payable amount.",
+                                                "discount_percentage": 20,
+                                                "cashback_percentage": 10,
+                                                "luzo_offers_terms_and_conditions": [
+                                                        {
+                                                                "id": 14184,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "Cannot be clubbed with any other offer, membership, packages or product purchase",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null
+                                                        },
+                                                        {
+                                                                "id": 14185,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "Valid only on online payments made via LUZO",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null
+                                                        },
+                                                        {
+                                                                "id": 14186,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "Offer is applicable on the amount given by the salon including GST at the time of billing",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null
+                                                        },
+                                                        {
+                                                                "id": 14187,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "LUZO Cash shall be deducted from the original bill amount before discount",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null
+                                                        },
+                                                        {
+                                                                "id": 14188,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "GST as applicable at the salon",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null
+                                                        },
+                                                        {
+                                                                "id": 14189,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "Offer is valid till 31st December, 2024",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null
+                                                        },
+                                                        {
+                                                                "id": 14190,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "Offer is applicable on all days",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null
+                                                        },
+                                                        {
+                                                                "id": 30229,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "Prior appointment booking on the LUZO app is mandatory",
+                                                                "created_at": null,
+                                                                "updated_at": null
+                                                        },
+                                                        {
+                                                                "id": 32276,
+                                                                "luzo_offer_id": 1935,
+                                                                "term_and_condition": "No refund can be issued from LUZO after you have availed the service. LUZO app helps you to book your appointment and make the payment with offers.",
+                                                                "created_at": null,
+                                                                "updated_at": null
+                                                        }
+                                                ],
+                                                "luzo_offers_validities": [
+                                                        {
+                                                                "id": 13539,
+                                                                "luzo_offer_id": 1935,
+                                                                "working_day": "Monday",
+                                                                "working_hours": "",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null,
+                                                                "start_time": "00:01:00",
+                                                                "end_time": "23:59:59"
+                                                        },
+                                                        {
+                                                                "id": 13540,
+                                                                "luzo_offer_id": 1935,
+                                                                "working_day": "Tuesday",
+                                                                "working_hours": "",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null,
+                                                                "start_time": "00:01:00",
+                                                                "end_time": "23:59:59"
+                                                        },
+                                                        {
+                                                                "id": 13541,
+                                                                "luzo_offer_id": 1935,
+                                                                "working_day": "Wednesday",
+                                                                "working_hours": "",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null,
+                                                                "start_time": "00:01:00",
+                                                                "end_time": "23:59:59"
+                                                        },
+                                                        {
+                                                                "id": 13542,
+                                                                "luzo_offer_id": 1935,
+                                                                "working_day": "Thursday",
+                                                                "working_hours": "",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null,
+                                                                "start_time": "00:01:00",
+                                                                "end_time": "23:59:59"
+                                                        },
+                                                        {
+                                                                "id": 13543,
+                                                                "luzo_offer_id": 1935,
+                                                                "working_day": "Friday",
+                                                                "working_hours": "",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null,
+                                                                "start_time": "00:01:00",
+                                                                "end_time": "23:59:59"
+                                                        },
+                                                        {
+                                                                "id": 13544,
+                                                                "luzo_offer_id": 1935,
+                                                                "working_day": "Saturday",
+                                                                "working_hours": "",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null,
+                                                                "start_time": "00:01:00",
+                                                                "end_time": "23:59:59"
+                                                        },
+                                                        {
+                                                                "id": 13545,
+                                                                "luzo_offer_id": 1935,
+                                                                "working_day": "Sunday",
+                                                                "working_hours": "",
+                                                                "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                "updated_at": null,
+                                                                "start_time": "00:01:00",
+                                                                "end_time": "23:59:59"
+                                                        }
+                                                ]
+                                        },{
+                                                    "id": 1935,
+                                                    "salon_id": 16,
+                                                    "title": "Get 30% OFF via LUZO",
+                                                    "code": "AVAIL30",
+                                                    "description": "20% Discount + 10% Cashback\nAfter availing your services,  and get 20% Discount & 10% Cashback as LUZO Cash on the net payable amount.",
+                                                    "discount_percentage": 20,
+                                                    "cashback_percentage": 10,
+                                                    "luzo_offers_terms_and_conditions": [
+                                                            {
+                                                                    "id": 14184,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "Cannot be clubbed with any other offer, membership, packages or product purchase",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null
+                                                            },
+                                                            {
+                                                                    "id": 14185,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "Valid only on online payments made via LUZO",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null
+                                                            },
+                                                            {
+                                                                    "id": 14186,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "Offer is applicable on the amount given by the salon including GST at the time of billing",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null
+                                                            },
+                                                            {
+                                                                    "id": 14187,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "LUZO Cash shall be deducted from the original bill amount before discount",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null
+                                                            },
+                                                            {
+                                                                    "id": 14188,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "GST as applicable at the salon",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null
+                                                            },
+                                                            {
+                                                                    "id": 14189,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "Offer is valid till 31st December, 2024",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null
+                                                            },
+                                                            {
+                                                                    "id": 14190,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "Offer is applicable on all days",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null
+                                                            },
+                                                            {
+                                                                    "id": 30229,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "Prior appointment booking on the LUZO app is mandatory",
+                                                                    "created_at": null,
+                                                                    "updated_at": null
+                                                            },
+                                                            {
+                                                                    "id": 32276,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "term_and_condition": "No refund can be issued from LUZO after you have availed the service. LUZO app helps you to book your appointment and make the payment with offers.",
+                                                                    "created_at": null,
+                                                                    "updated_at": null
+                                                            }
+                                                    ],
+                                                    "luzo_offers_validities": [
+                                                            {
+                                                                    "id": 13539,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "working_day": "Monday",
+                                                                    "working_hours": "",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null,
+                                                                    "start_time": "00:01:00",
+                                                                    "end_time": "23:59:59"
+                                                            },
+                                                            {
+                                                                    "id": 13540,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "working_day": "Tuesday",
+                                                                    "working_hours": "",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null,
+                                                                    "start_time": "00:01:00",
+                                                                    "end_time": "23:59:59"
+                                                            },
+                                                            {
+                                                                    "id": 13541,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "working_day": "Wednesday",
+                                                                    "working_hours": "",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null,
+                                                                    "start_time": "00:01:00",
+                                                                    "end_time": "23:59:59"
+                                                            },
+                                                            {
+                                                                    "id": 13542,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "working_day": "Thursday",
+                                                                    "working_hours": "",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null,
+                                                                    "start_time": "00:01:00",
+                                                                    "end_time": "23:59:59"
+                                                            },
+                                                            {
+                                                                    "id": 13543,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "working_day": "Friday",
+                                                                    "working_hours": "",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null,
+                                                                    "start_time": "00:01:00",
+                                                                    "end_time": "23:59:59"
+                                                            },
+                                                            {
+                                                                    "id": 13544,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "working_day": "Saturday",
+                                                                    "working_hours": "",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null,
+                                                                    "start_time": "00:01:00",
+                                                                    "end_time": "23:59:59"
+                                                            },
+                                                            {
+                                                                    "id": 13545,
+                                                                    "luzo_offer_id": 1935,
+                                                                    "working_day": "Sunday",
+                                                                    "working_hours": "",
+                                                                    "created_at": "2023-10-24T01:57:02.000000Z",
+                                                                    "updated_at": null,
+                                                                    "start_time": "00:01:00",
+                                                                    "end_time": "23:59:59"
+                                                            }
+                                                    ]
+                                            },
                             ]
                     }
             }

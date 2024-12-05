@@ -16,22 +16,27 @@ const OfferCard = ({ offer }) => {
     if (divRef.current) {
       // Update the height whenever the component renders
       setDivHeight(divRef.current.offsetHeight);
+      console.log({ height: divRef.current.offsetHeight });
     }
   }, []);
 
   const handleApplyOffer = () => {
     dispatch(applyOffer(offer)); // Dispatch the complete offer
     alert("Offer applied and you have received " + offer.discount_percentage + "% discount");
-  
+
     // Redirect to the cart page
     router.push(`/partner-details/${offer.partnerId}/service-details/${offer.serviceId}/cart`);
   };
-  
+
 
   return (
     <Provider store={store}>
       <div className='border p-2 m-2 rounded-r-xl ml-[50px] relative' ref={divRef}>
-        <p className='-rotate-90 absolute top-[70px] left-[-110px] font-bold text-white bg-blue-300 w-full border-black text-center py-2' style={{ width: `${divHeight}px` }}>{offer.code}</p>
+        <p className={`-rotate-90 absolute  font-bold text-white bg-blue-300 w-full border-black text-center py-2`} style={{
+          top: `${divHeight / 2.65}px`,
+          left: `-${divHeight / 1.6}px`,
+          width: `${divHeight}px`
+        }}>{offer.code}</p>
         <div className='flex justify-between'>
           <div>
             <h1 className='font-semibold'>{offer.title}</h1>
