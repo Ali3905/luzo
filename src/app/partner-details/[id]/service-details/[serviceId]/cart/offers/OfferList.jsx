@@ -11,7 +11,7 @@ const OfferList = ({ offers }) => {
             <div className='mt-[100px]'>
                 {
                     offers?.map((offer) => {
-                        return <OfferCard offer={offer} />
+                        return <OfferCard offer={offer} key={offer.id} />
                     })
                 }
             </div>
