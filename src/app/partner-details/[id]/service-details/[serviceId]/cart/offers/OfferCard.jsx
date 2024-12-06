@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import { Provider, useDispatch } from 'react-redux';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import store from '../../../../../../../redux/store';
 import { applyOffer } from '../../../../../../../redux/cartSlice';
 
@@ -11,7 +11,10 @@ const OfferCard = ({ offer }) => {
   const [divHeight, setDivHeight] = useState(0);
   const dispatch = useDispatch();
   const router = useRouter();
+  const { serviceId, id } = useParams()
 
+  console.log({id: offer.serviceId});
+  
   useEffect(() => {
     if (divRef.current) {
       // Update the height whenever the component renders
@@ -25,7 +28,7 @@ const OfferCard = ({ offer }) => {
     alert("Offer applied and you have received " + offer.discount_percentage + "% discount");
 
     // Redirect to the cart page
-    router.push(`/partner-details/${offer.partnerId}/service-details/${offer.serviceId}/cart`);
+    router.push(`/partner-details/${id}/service-details/${serviceId}/cart`);
   };
 
 
