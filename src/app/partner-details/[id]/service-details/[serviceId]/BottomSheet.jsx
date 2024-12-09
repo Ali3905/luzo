@@ -1,11 +1,11 @@
 import { useState } from "react";
 // import { CartContext } from "../../../../../context/cart";
-import { addToCart } from "../../../../../redux/cartSlice";
+import { addToCart, editCart } from "../../../../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 
-const BottomSheet = ({ isOpen, onClose, service, salon }) => {
+const BottomSheet = ({ isOpen, onClose, service, salon, isEdit }) => {
   const dispatch = useDispatch();
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(isEdit ? service.id : null);
 
   if (!isOpen) return null;
 
@@ -37,9 +37,8 @@ const BottomSheet = ({ isOpen, onClose, service, salon }) => {
           {service.customizations?.[0]?.options?.map((ele, i) => {
             return (
               <div
-                className={`grid grid-cols-2 items-center rounded-md px-2 py-2 ${
-                  ele.id === selectedOption?.id ? "bg-blue-100" : ""
-                }`}
+                className={`grid grid-cols-2 items-center rounded-md px-2 py-2 ${ele.id === selectedOption?.id ? "bg-blue-100" : ""
+                  }`}
                 key={i}
               >
                 {/* Service Name */}
@@ -67,19 +66,32 @@ const BottomSheet = ({ isOpen, onClose, service, salon }) => {
               alert("Select any option");
               return;
             }
-            dispatch(addToCart({ ...service, display_rate: selectedOption.rate, selectedOption }));
-            alert(service.name);
-            onClose();
+            if (isEdit) {
+              dispatch(editCart({ id: service.id, service: { ...service, display_rate: selectedOption.rate, selectedOption } }))
+              alert(service.name);
+              onClose();
+            } else {
+              dispatch(addToCart({ ...service, display_rate: selectedOption.rate, selectedOption }));
+              alert(service.name);
+              onClose();
+            }
+
           }}
           className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold"
         >
           <button className="bg-blue-500 popup_btn_gradient text-white w-full py-2 rounded-md font-semibold">
-            Add To Cart
+            {isEdit ? "Update Cart" : "Add To Cart"}
           </button>
+
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
 export default BottomSheet;
+
+
+
+
+

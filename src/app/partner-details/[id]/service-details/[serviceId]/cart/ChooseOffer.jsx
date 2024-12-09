@@ -1,47 +1,55 @@
 "use client";
+import React from "react";
+import { ChevronRight, CircleX } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { clearOffer } from "../../../../../../redux/cartSlice";
 
-import React from 'react';
-import { ChevronRight, CircleX } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import { useDispatch, useSelector } from 'react-redux';
-import { clearOffer } from '../../../../../../redux/cartSlice'; // Adjust path based on your structure
-
-const ChooseOffer = () => {
+const ChooseOffers = ({ onApplyOffer }) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const appliedOffer = useSelector((state) => state.cart.appliedOffer); // Access applied offer from Redux
+  const appliedOffer = useSelector((state) => state.cart.appliedOffer);
 
-  // Handler to clear the applied offer
-  const handleRemoveOffer = () => {
-    dispatch(clearOffer()); // Dispatch the action to clear the offer
+  const handleRemoveOffer = (e) => {
+    e.stopPropagation(); // Prevent navigation when clearing the offer
+    dispatch(clearOffer());
+  };
+
+  const handleChooseOffer = () => {
+    if (appliedOffer) {
+      // Trigger SuccessfullyApplied bottom sheet
+      onApplyOffer(appliedOffer);
+    } else {
+      // Navigate to the offers page
+      router.push("cart/offers");
+    }
   };
 
   return (
     <div
-      className='py-2 flex mt-2 m-2 p-2 rounded-xl justify-between bg-white items-center'
-      onClick={() => {
-        if (!appliedOffer) {
-          router.push("cart/offers"); // Navigate to select offers if no offer is applied
-        }
-      }}
+      className="py-2 flex mt-2 m-2 p-2 rounded-xl justify-between bg-white items-center cursor-pointer"
+      onClick={handleChooseOffer}
     >
-      <div className='text-[14px]'>
+      <div className="text-[14px]">
         {appliedOffer ? (
           <>
-            <p>Offer Applied</p>
-            <p>{appliedOffer.code}</p>
+            <p className="font-semibold">Offer Applied</p>
+            <p className="text-blue-500">{appliedOffer.code}</p>
           </>
         ) : (
-          <p>Choose Offer</p>
+          <p className="text-gray-500">Choose Offer</p>
         )}
       </div>
       {appliedOffer ? (
-        <CircleX onClick={handleRemoveOffer} className="cursor-pointer text-red-400" />
+        <CircleX
+          onClick={handleRemoveOffer}
+          className="cursor-pointer text-red-400 hover:text-red-600"
+        />
       ) : (
-        <ChevronRight />
+        <ChevronRight className="text-gray-400" />
       )}
     </div>
   );
 };
 
-export default ChooseOffer;
+export default ChooseOffers;

@@ -25,6 +25,11 @@ const cartSlice = createSlice({
     removeFromCart(state, action) {
       state.cart = state.cart.filter((item) => item.id !== action.payload);
     },
+    editCart(state, action) {
+      const index = state.cart.findIndex((item) => item.id === action.payload.id);
+      state.cart[index] = action.payload.service
+      // console.log(index, action.payload)
+    },
     applyOffer(state, action) {
       state.appliedOffer = action.payload; // Store the applied offer object
       state.discount += action.payload.discount_percentage; // Update the discount value
@@ -36,6 +41,6 @@ const cartSlice = createSlice({
   },
 });
 
-export const { setCart, addToCart, removeFromCart, applyOffer, clearOffer } = cartSlice.actions;
+export const { setCart, addToCart, removeFromCart, applyOffer, clearOffer, editCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

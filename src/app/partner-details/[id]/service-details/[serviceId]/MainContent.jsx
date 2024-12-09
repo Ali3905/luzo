@@ -11,6 +11,7 @@ import axios from "axios";
 import { serviceData } from "./ServiceData";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, removeFromCart } from "../../../../../redux/cartSlice";
+import BillDetail from './cart/BillDetails'
 
 
 
@@ -103,7 +104,7 @@ const MainContent = () => {
 
   const isServiceAddedInCart = (serviceId) => {
     const addedService = cart.filter((ele) => ele.id === serviceId)
-    console.log({addedService, cart, serviceId});
+    // console.log({addedService, cart, serviceId});
     
     return addedService.length > 0 ? true : false
   }
@@ -120,6 +121,7 @@ const MainContent = () => {
 
   return (
     <div className="w-3/4">
+      
       {loading ? (
         Array.from({ length: 4 }).map((_, index) => (
           <ShimmerThumbnail key={index} height={100} rounded className={"shimmer"} />
@@ -288,9 +290,6 @@ const MainContent = () => {
           </div>
         </div>
       )}
-
-
-
 
     </div>
 

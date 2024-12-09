@@ -1,6 +1,4 @@
 {
-  "/partner-details/[id]/service-details/[serviceId]/cart/offers/page": "app/partner-details/[id]/service-details/[serviceId]/cart/offers/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/partner-details/[id]/service-details/[serviceId]/cart/page": "app/partner-details/[id]/service-details/[serviceId]/cart/page.js",
-  "/partner-details/[id]/service-details/[serviceId]/page": "app/partner-details/[id]/service-details/[serviceId]/page.js"
+  "/partner-details/[id]/service-details/[serviceId]/page": "app/partner-details/[id]/service-details/[serviceId]/page.js",
+  "/partner-details/[id]/service-details/[serviceId]/cart/page": "app/partner-details/[id]/service-details/[serviceId]/cart/page.js"
 }

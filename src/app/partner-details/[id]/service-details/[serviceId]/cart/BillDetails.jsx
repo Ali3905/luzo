@@ -3,9 +3,12 @@ import React, { useState } from 'react'
 import { ChevronRight, ChevronUp, ChevronDown, X } from 'lucide-react';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart } from '../../../../../../redux/cartSlice';
+import { editCart, removeFromCart } from '../../../../../../redux/cartSlice';
+import BottomSheet from '../BottomSheet';
 
 const BillDetails = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  const [selectedId, setSelectedId] = useState(null)
   const cart = useSelector((state) => state.cart.cart);
   const discount = useSelector((state) => state.cart.discount);
   let total = 0;
@@ -66,11 +69,23 @@ const BillDetails = () => {
                     <p className='text-[9px] border-b'>{ele.one_line_description}</p>
                     <p className='text-[14px]'>{ele.name}</p>
                     <p className='text-[12px]'>From ₹ {ele.display_rate} + GST</p>
-                    <p className='text-[12px] text-blue-300'>Edit</p>
+                    <p className='text-[12px] text-blue-300' onClick={() => {
+                      setIsCartOpen(true)
+                      setSelectedId(ele.id)
+                    }}>Edit</p>
                   </div>
                 </div>
 
                 <X className='border border-[#000] border-w-2 rounded-full' onClick={() => dispatch(removeFromCart(ele.id))} />
+                {selectedId && selectedId === ele.id && isCartOpen && <BottomSheet
+                  isOpen={true}
+                  onClose={() => {
+                    setIsCartOpen(false)
+                  }}
+                  service={ele}
+                  isEdit={true}
+                  // salon={salon}
+                />}
               </div>
             );
           })}

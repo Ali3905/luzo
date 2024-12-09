@@ -231,6 +231,7 @@ const Form = () => {
                               )}
                             />
                           </div>
+                          
                           <div>
                             <Controller
                               name="gst_percentage"
