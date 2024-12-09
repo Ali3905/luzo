@@ -69,10 +69,10 @@ const BillDetails = () => {
                     <p className='text-[9px] border-b'>{ele.one_line_description}</p>
                     <p className='text-[14px]'>{ele.name}</p>
                     <p className='text-[12px]'>From ₹ {ele.display_rate} + GST</p>
-                    <p className='text-[12px] text-blue-300' onClick={() => {
+                    {ele.customizations && ele.customizations.length > 0 && <p className='text-[12px] text-blue-300' onClick={() => {
                       setIsCartOpen(true)
                       setSelectedId(ele.id)
-                    }}>Edit</p>
+                    }}>Edit</p>}
                   </div>
                 </div>
 

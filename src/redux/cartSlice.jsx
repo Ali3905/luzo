@@ -20,6 +20,8 @@ const cartSlice = createSlice({
         return;
       } else {
         state.cart.push(action.payload);
+        console.log(action.payload);
+        
       }
     },
     removeFromCart(state, action) {

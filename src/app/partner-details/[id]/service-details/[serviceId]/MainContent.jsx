@@ -206,7 +206,7 @@ const MainContent = () => {
                               className={`${isServiceAddedInCart(ele.id) ? "text-white bg-blue-400" : "bg-white text-blue-400"} text-[14px] sm:text-[14px] items-center font-semibold border shadow-md rounded-md px-2 flex gap-1`}
                               onClick={() => {
                                 if (!ele?.customizations?.length) {
-                                  dispatch(addToCart(service))
+                                  dispatch(addToCart({ ...ele, display_rate: ele.rate }))
                                 } else {
                                   // If customizations are present, show BottomSheet
                                   if(isServiceAddedInCart(ele.id)){
