@@ -49,7 +49,7 @@ const SuccessfullyApplied = ({ isVisible, onClose, offerDetails }) => {
             className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
             onClick={() => {
               onClose();
-              router.push("/cart"); // Redirect to cart page
+              // router.push("/cart"); // Redirect to cart page
             }}
           >
             Okay

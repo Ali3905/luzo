@@ -68,11 +68,11 @@ const BottomSheet = ({ isOpen, onClose, service, salon, isEdit }) => {
             }
             if (isEdit) {
               dispatch(editCart({ id: service.id, service: { ...service, display_rate: selectedOption.rate, selectedOption } }))
-              alert(service.name);
+              // alert(service.name);
               onClose();
             } else {
               dispatch(addToCart({ ...service, display_rate: selectedOption.rate, selectedOption }));
-              alert(service.name);
+              // alert(service.name);
               onClose();
             }
 
