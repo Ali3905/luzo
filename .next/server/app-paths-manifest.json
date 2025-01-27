@@ -4,5 +4,6 @@
   "/partner-details/[id]/service-details/[serviceId]/page": "app/partner-details/[id]/service-details/[serviceId]/page.js",
   "/partner-details/[id]/service-details/[serviceId]/cart/page": "app/partner-details/[id]/service-details/[serviceId]/cart/page.js",
   "/_not-found/page": "app/_not-found/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/salon/[salonName]/page": "app/salon/[salonName]/page.js"
 }

@@ -18,10 +18,12 @@ const LocationSupport = () => {
       });
 
       // Check if the status code is not 200 (e.g., 404 Not Found)
-      if (res.status !== 200 || res.data.status !== "Success") {
-        throw new Error("Failed to fetch salon info");
-      }
+      // if (res.status !== 200 || res.data.status !== "Success") {
+      //   throw new Error("Failed to fetch salon info");
+      // }
 
+      console.log({dat : res.data?.data.salon?.salonData?.[0].salon});
+      
 
       setData(res.data?.data.salon?.salonData?.[0].salon)
 
