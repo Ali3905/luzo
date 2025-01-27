@@ -17,7 +17,7 @@ const Feature = () => {
     },
     {
       img: '/aboutBanner3.png',
-      heading: '700+ Salons | Spas | Clinic',
+      heading: '1000+ Salons | Spas | Clinic',
       // para: 'Avail exclusive offers at all salon ',
     },
     {

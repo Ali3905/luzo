@@ -10,7 +10,7 @@ const BottomSheet = ({ isOpen, onClose, service, salon, isEdit }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex justify-center items-end bg-black bg-opacity-5">
+    <div className="fixed inset-0 flex justify-center items-end bg-black bg-opacity-5 z-50">
       <div className="bg-gray-200 w-full max-w-lg rounded-t-2xl p-4">
         <div className="flex justify-between items-center mb-2">
           <h2 className="text-lg font-bold px-2">{service.name}</h2>
@@ -37,26 +37,28 @@ const BottomSheet = ({ isOpen, onClose, service, salon, isEdit }) => {
           {service.customizations?.[0]?.options?.map((ele, i) => {
             return (
               <div
-                className={`grid grid-cols-2 items-center rounded-md px-2 py-2 ${ele.id === selectedOption?.id ? "bg-blue-100" : ""
-                  }`}
-                key={i}
-              >
-                {/* Service Name */}
-                <span>{ele.name}</span>
-                {/* Container for rate and radio button */}
-                <div className="flex items-center justify-end gap-2">
-                  <span className="text-sm text-gray-500">From ₹ {Math.floor(ele.rate)}</span>
-
-                  {/* Radio Button with onChange to set selectedOption */}
-                  <input
-                    type="radio"
-                    name="product"
-                    className="form-radio"
-                    checked={ele.id === selectedOption?.id}
-                    onChange={() => setSelectedOption(ele)} // Update selectedOption when radio is selected
-                  />
-                </div>
+              className={`grid grid-cols-2 items-center rounded-md px-2 py-2 ${ele.id === selectedOption?.id ? "bg-blue-100" : ""}`}
+              key={i}
+              onClick={() => setSelectedOption(ele)} // Update selectedOption when the service name or container is clicked
+            >
+              {/* Service Name */}
+              <span>{ele.name}</span>
+              {/* Container for rate and radio button */}
+              <div className="flex items-center justify-end gap-2">
+                <span className="text-sm text-gray-500">From ₹ {Math.floor(ele.rate)}</span>
+            
+                {/* Radio Button */}
+                <input
+                  type="radio"
+                  name="product"
+                  className="form-radio"
+                  checked={ele.id === selectedOption?.id}
+                  onChange={() => setSelectedOption(ele)} // Update selectedOption when radio is clicked
+                  onClick={(e) => e.stopPropagation()} // Prevent event propagation to avoid triggering the container click
+                />
               </div>
+            </div>
+            
             );
           })}
         </div>
@@ -90,6 +92,8 @@ const BottomSheet = ({ isOpen, onClose, service, salon, isEdit }) => {
 };
 
 export default BottomSheet;
+
+
 
 
 

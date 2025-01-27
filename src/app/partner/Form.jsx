@@ -63,40 +63,88 @@ const Form = () => {
   }
 
   const formFields = [
-    { name: 'salon_contacts[0].contact_name', label: 'Your Name*', type: 'text', validtion: { required: "Your name is required" } },
-    { name: 'salon_contacts[0].contact_number', label: 'Your Contact*', type: 'number', validtion: { required: { value: true, message: "Your contact number is required" }, minLength: { value: 10, message: "Contact number must contain atleast 10 digits" }, maxLength: { value: 10, message: "Contact number can max contain 10 digits" } } },
-    { name: 'contacted_city', label: 'City*', type: 'text', validtion: { required: "City is required" } },
-    { name: 'salon_name', label: 'Brand / Business Name*', type: 'text', validtion: { required: "Brand / Business name is required" } },
-    { name: 'no_of_outlets', label: 'No. of Branches*', type: 'number', validtion: { required: "No. of branches is required" } },
-    { name: 'map_link', label: 'Google Maps Link / Google Profile', type: 'text', validation: { required: "Map Link is required" } },
+    {
+      name: 'name',
+      label: 'Your Name*',
+      type: 'text',
+      validation: { required: "Your name is required" },
+    },
+    {
+      name: 'contact',
+      label: 'Your Contact*',
+      type: 'number',
+      validation: {
+        required: { value: true, message: "Your contact number is required" },
+        validate: {
+          isPositive: value => value > 0 || "Contact number cannot be negative",
+          isValidLength: value =>
+            value.toString().length >= 10 && value.toString().length <= 15 ||
+            "Contact number must be between 10 to 15 digits",
+        },
+      },
+    },
+    {
+      name: 'contacted_city',
+      label: 'City*',
+      type: 'text',
+      validation: { required: "City is required" },
+    },
+    {
+      name: 'salon_name',
+      label: 'Brand / Business Name*',
+      type: 'text',
+      validation: { required: "Brand / Business name is required" },
+    },
+    {
+      name: 'no_of_outlets',
+      label: 'No. of Branches*',
+      type: 'number',
+      validation: {
+        required: "No. of branches is required",
+        validate: {
+          positive: value => value > 0 || "Number of branches cannot be negative",
+        },
+      },
+    },
+    {
+      name: 'map_link',
+      label: 'Google Maps Link / Google Profile',
+      type: 'text',
+    },
     {
       name: 'outlet_type',
       label: 'Outlet type?',
       type: 'radio',
       options: ['Company Owned', 'Franchisee'],
-      validation: { required: "Outlet type is required" }
+      validation: { required: "Outlet type is required" },
     },
     {
       name: 'gst_registered',
       label: 'Are you GST registered?',
       type: 'radio',
       options: ['Yes', 'No'],
-      validation: { required: "This field is required" }
-    },    
-   
+      validation: { required: "This field is required" },
+    },
     {
       name: 'partner_type',
       label: 'Services you provide (select 1 or more)',
       type: 'checkbox',
-      options: ['Salon', 'Wellness & Spa', 'Dermatology Clinic', 'Nails & Lashes', 'Pet Spa', 'Tattoo & Piercing'],
-      validtion: { required: "Select at least one " }
+      options: [
+        'Salon',
+        'Wellness & Spa',
+        'Dermatology Clinic',
+        'Nails & Lashes',
+        'Pet Spa',
+        'Tattoo & Piercing',
+      ],
+      validation: { required: "Select at least one" },
     },
     {
       name: 'other_notes',
-      label: 'How did you hear about us ? (Optional)',
+      label: 'How did you hear about us? (Optional)',
       type: 'radio',
       options: ['Google', 'Facebook/Instagram', 'Your Customer', 'Industry Friends'],
-    },    
+    },
   ];
 
   return (
@@ -109,30 +157,37 @@ const Form = () => {
         {formFields.map((field, index) => (
           <div key={index}>
             {(field.type === 'text' || field.type === 'number') && (
-
-              <div className="relative w-full">
-                <input
-                  type={field.type}
-                  {...register(field.name, { ...field.validation })}
-                  name={field.name}
-                  id={field.name}
-                  placeholder=" "  // Keep the placeholder empty to trigger the floating label
-                  className={`block px-2.5 pb-2.5 pt-4 w-full sm:w-[70%] text-base text-gray-900 bg-transparent border ${errors[field.name] ? 'border-red-500' : 'border-gray-300'} rounded-lg focus:border-blue-600 focus:ring-0 focus:outline-none peer`}
-                />
-                <label
-                  htmlFor={field.name}
-                  className={`absolute text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 left-3 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4`}
-                >
-                  <span className='sm:text-[16px] text-[14px]'>{field.label}</span>
-                </label>
-                {(errors[field.name] || errors["salon_contacts"]) && (
-                  <p className="text-red-500 text-sm mt-1">
-                    {errors[field.name]?.message || errors["salon_contacts"][field.name.split(".").pop()]?.message}
-                  </p>
-                )}
-              </div>
-
-            )}
+      <div className="relative w-full">
+        <input
+          type={field.type}
+          {...register(field.name, {
+            ...field.validation,
+            validate: value =>
+              field.type === 'number' && value < 0
+                ? "Negative values are not allowed"
+                : true, // Custom validation rule for negative values
+          })}
+          name={field.name}
+          id={field.name}
+          placeholder=" " // Keep the placeholder empty to trigger the floating label
+          min={field.type === 'number' ? 0 : undefined} // Prevent negative values for number inputs
+          className={`block px-2.5 pb-2.5 pt-4 w-full sm:w-[70%] text-base text-gray-900 bg-transparent border ${
+            errors[field.name] ? 'border-red-500' : 'border-gray-300'
+          } rounded-lg focus:border-blue-600 focus:ring-0 focus:outline-none peer`}
+        />
+        <label
+          htmlFor={field.name}
+          className={`absolute text-gray-500 duration-300 transform -translate-y-4 scale-75 top-2 left-3 z-10 origin-[0] bg-white px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:top-4 peer-placeholder-shown:left-3 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4`}
+        >
+          <span className="sm:text-[16px] text-[14px]">{field.label}</span>
+        </label>
+        {(errors[field.name] || errors["salon_contacts"]) && (
+          <p className="text-red-500 text-sm mt-1">
+            {errors[field.name]?.message || errors["salon_contacts"][field.name.split(".").pop()]?.message}
+          </p>
+        )}
+      </div>
+              )}
 
             {field.type === 'radio' && field.name !== 'gst_registered' && (
               <label className='flex flex-col gap-[12px]'>

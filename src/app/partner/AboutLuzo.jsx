@@ -8,7 +8,7 @@ const AboutLuzo = () => {
     const about = [
         {
             icon: "/partnerSalon.png",
-            benefit: "700+ Partners"
+            benefit: "1000+ Partners"
         },
         {
             icon: "/Barbershop.png",

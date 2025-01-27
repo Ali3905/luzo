@@ -21,7 +21,7 @@ const Trust = () => {
             </div>
             <div className="flex flex-col  items-center">
                 <Image src="/icons/hair-salon.svg"  width={40} height={40} alt="Image" />
-                <h1 className="text-[#3554D1] text-[30px] leading-[39px] font-medium">700+</h1>
+                <h1 className="text-[#3554D1] text-[30px] leading-[39px] font-medium">1000+</h1>
                 <p className="text-[#707070] text-[14px] font-medium">Partners</p>
             </div>
             <div className="flex flex-col  items-center">

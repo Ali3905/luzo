@@ -55,45 +55,144 @@ const Form = () => {
   };
 
   const formFields = [
-    { name: 'name', label: 'Your Name*', type: 'text', validtion: { required: "Your name is required" } },
-    { name: 'contact', label: 'Your Contact*', type: 'number', validtion: { required: { value: true, message: "Your contact number is required" }, minLength: { value: 10, message: "Contact number must contain at least 10 digits" }, maxLength: { value: 10, message: "Contact number can max contain 10 digits" } } },
-    { name: 'city', label: 'City*', type: 'text', validtion: { required: "City is required" } },
-    { name: 'current_salary', label: 'Current Salary*', type: 'text', validtion: { required: "Current salary is required" } },
-    { name: 'expected_salary', label: 'Expected Salary*', type: 'text', validtion: { required: "Expected Salary is required" } },
+    {
+      name: 'name',
+      label: 'Your Name*',
+      type: 'text',
+      validtion: { required: "Your name is required" },
+    },
+    {
+      name: 'contact',
+      label: 'Your Contact*',
+      type: 'number',
+      validtion: {
+        required: { value: true, message: "Your contact number is required" },
+        validate: {
+          isPositive: value => value > 0 || "Contact number cannot be negative",
+          isValidLength: value =>
+            value.toString().length >= 10 && value.toString().length <= 15 ||
+            "Contact number must be between 10 to 15 digits",
+        },
+      },
+    },
+    
+    {
+      name: 'city',
+      label: 'City*',
+      type: 'text',
+      validtion: { required: "City is required" },
+    },
+    {
+      name: 'current_salary',
+      label: 'Current Salary*',
+      type: 'text',
+      validtion: {
+        required: "Current salary is required",
+        validate: {
+          isPositive: value => parseFloat(value) > 0 || "Current salary cannot be negative",
+        },
+      },
+    },
+    {
+      name: 'expected_salary',
+      label: 'Expected Salary*',
+      type: 'text',
+      validtion: {
+        required: "Expected salary is required",
+        validate: {
+          isPositive: value => parseFloat(value) > 0 || "Expected salary cannot be negative",
+        },
+      },
+    },
+    
     {
       name: 'position',
       label: 'Your Current Designation',
       type: 'radio',
-      options: ["Salon Manager", "Stylist/Therapist",  "Sales/Marketing", "Tech", "Accounting & Finance", "Operations", "Other"],
+      options: [
+        "Salon Manager",
+        "Stylist/Therapist",
+        "Sales/Marketing",
+        "Tech",
+        "Accounting & Finance",
+        "Operations",
+        "Other",
+      ],
       validtion: { required: "This field is required" },
-      nestedInput: [{
-        watch: "position",
-        for: "Stylist/Therapist",
-        name: "specialties",
-        label: "Select Specialities",
-        type: "checkbox",
-        options: ["Nails", "Spa/Body Massage", "Hair", "Beauty", "Manicure", "Pedicure", "Men's Grooming", "Bridal", "Cosmetology/Dermatology"],
-        validtion: { required: "Select at least one" },
-      },
-      {
-        watch: "position",
-        for: "Tech",
-        name: "Tech",
-        label: "Select Specialities",
-        type: "checkbox",
-        options: ["Frontend Developer", "Backend Developer"],
-        validtion: { required: "Select at least one" },
-      },
-      { watch: "position", for: "Other", name: 'Other', label: 'Please specify', type: 'text', validtion: { required: "This is required" } }
+      nestedInput: [
+        {
+          watch: "position",
+          for: "Stylist/Therapist",
+          name: "specialties",
+          label: "Select Specialities",
+          type: "checkbox",
+          options: [
+            "Nails",
+            "Spa/Body Massage",
+            "Hair",
+            "Beauty",
+            "Manicure",
+            "Pedicure",
+            "Men's Grooming",
+            "Bridal",
+            "Cosmetology/Dermatology",
+          ],
+          validtion: { required: "Select at least one specialty" },
+        },
+        {
+          watch: "position",
+          for: "Tech",
+          name: "Tech",
+          label: "Select Specialities",
+          type: "checkbox",
+          options: ["Frontend Developer", "Backend Developer"],
+          validtion: { required: "Select at least one specialty" },
+        },
+        {
+          watch: "position",
+          for: "Other",
+          name: 'Other',
+          label: 'Please specify',
+          type: 'text',
+          validtion: { required: "This field is required" },
+        },
       ],
     },
-
-
-    { name: 'experience', label: 'Experience*', type: 'select', options: ['Less than 1 year', '1 to 3 years', '3 to 7 years', '7+ years'], validtion: { required: "Experience is required" } },
-    { name: 'about', label: 'About*', type: 'textarea', validtion: { required: "About is required" } },
-    { name: "CV", label: "Upload CV (Optional)", type: "file", fileType: "application/pdf image/*", exampleImage: '/Age-range.jpeg' }
+    {
+      name: 'experience',
+      label: 'Experience*',
+      type: 'select',
+      options: [
+        'Less than 1 year',
+        '1 to 3 years',
+        '3 to 7 years',
+        '7+ years',
+      ],
+      validtion: { required: "Experience is required" },
+    },
+    {
+      name: 'about',
+      label: 'About*',
+      type: 'textarea',
+      validtion: { required: "About is required" },
+    },
+    {
+      name: "CV",
+      label: "Upload CV (Optional)",
+      type: "file",
+      fileType: "application/pdf, image/*",
+      exampleImage: '/Age-range.jpeg',
+      validtion: {
+        validate: {
+          validFileType: value =>
+            !value ||
+            /\.(pdf|jpg|jpeg|png)$/i.test(value[0]?.name) ||
+            "File must be a PDF, JPG, or PNG",
+        },
+      },
+    },
   ];
-
+  
   return (
     <div className='mb-[100px] mt-6 max-w-[1200px] mx-auto'>
       <h2 className='font-medium text-[20px] sm:text-[30px] font-semibold mb-4 pl-5'>Help us with your details?</h2>
@@ -254,3 +353,6 @@ const Form = () => {
 }
 
 export default Form;
+
+
+

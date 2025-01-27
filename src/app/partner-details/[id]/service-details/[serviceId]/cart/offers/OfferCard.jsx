@@ -4,15 +4,10 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useParams, useRouter } from "next/navigation";
 import { applyOffer } from "../../../../../../../redux/cartSlice";
-import Confetti from "react-confetti";
 
-const OfferCard = ({ offer }) => {
+const OfferCard = ({ offer, onApply }) => {
   const divRef = useRef(null);
   const [divHeight, setDivHeight] = useState(0);
-  const [windowSize, setWindowSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
   const [isOfferApplied, setIsOfferApplied] = useState(false);
 
   const dispatch = useDispatch();
@@ -23,39 +18,29 @@ const OfferCard = ({ offer }) => {
     if (divRef.current) {
       setDivHeight(divRef.current.offsetHeight);
     }
-
-    const handleResize = () => {
-      setWindowSize({ width: window.innerWidth, height: window.innerHeight });
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handleApplyOffer = () => {
     dispatch(applyOffer(offer));
     setIsOfferApplied(true);
 
+    // Trigger the confetti effect in the parent component
+    if (onApply) onApply();
+
     // Redirect to cart page with a query parameter to indicate the offer was applied
     setTimeout(() => {
       router.push(
         `/partner-details/${id}/service-details/${serviceId}/cart?offerApplied=true`
       );
-    }, 2000); // Wait briefly to display confetti before redirecting
+    }, 3000); // Wait briefly before redirecting
   };
 
   return (
-    <div className="border p-2 m-2 rounded-r-xl ml-[50px] relative" ref={divRef}>
-      {/* Show Confetti when offer is applied */}
-      {isOfferApplied && (
-        <Confetti
-          width={windowSize.width}
-          height={windowSize.height}
-          numberOfPieces={300}
-          recycle={false}
-          gravity={0.2}
-        />
-      )}
+    <div
+      className="border p-2 m-2 rounded-r-xl ml-[50px] relative cursor-pointer"
+      ref={divRef}
+      onClick={handleApplyOffer}  // Apply the offer on clicking anywhere in the card
+    >
       <p
         className={`-rotate-90 absolute font-bold text-white bg-blue-300 w-full text-center py-2`}
         style={{
@@ -70,10 +55,7 @@ const OfferCard = ({ offer }) => {
         <div>
           <h1 className="font-semibold">{offer.title}</h1>
         </div>
-        <div
-          className="font-bold cursor-pointer text-blue-400"
-          onClick={handleApplyOffer}
-        >
+        <div className="font-bold text-blue-400">
           APPLY
         </div>
       </div>

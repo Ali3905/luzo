@@ -43,6 +43,11 @@ const Navbar = () => {
                label : "Careers",
                value : "careers",
                link : "/careers"
+          },
+          {
+               label : "Blogs",
+               value : "blogs",
+               link : "/blogs"
           }
           
      ]

@@ -36,7 +36,7 @@ const Offers = () => {
             className="flex font-medium text-[14px] py-3 justify-between items-center cursor-pointer"
             onClick={toggleBillSheet} // Toggle the BillBottomSheet
           >
-            <h3>Calculate your bill with offers ?</h3>
+            <h3>Calculate your bill with offers</h3>
             <ChevronRight />
           </div>
         </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Confetti from "react-confetti";
 import { useRouter } from "next/navigation";
 
 const SuccessfullyApplied = ({ isVisible, onClose, offerDetails }) => {
@@ -11,7 +10,7 @@ const SuccessfullyApplied = ({ isVisible, onClose, offerDetails }) => {
     if (isVisible) {
       const timer = setTimeout(() => {
         onClose();
-      }, 3000); // Auto close after 3 seconds
+      }, 5000); // Auto close after 3 seconds
       return () => clearTimeout(timer);
     }
   }, [isVisible, onClose]);
@@ -20,13 +19,6 @@ const SuccessfullyApplied = ({ isVisible, onClose, offerDetails }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
-      <Confetti
-        width={window.innerWidth}
-        height={window.innerHeight}
-        numberOfPieces={200}
-        gravity={0.4}
-        recycle={false}
-      />
       <div className="bg-white rounded-lg shadow-lg p-6 w-10/12 max-w-md text-center relative">
         <button
           className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"

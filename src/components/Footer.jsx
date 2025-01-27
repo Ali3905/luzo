@@ -38,6 +38,11 @@ const Footer = () => {
           Careers
         </li>
       </Link>
+      <Link href="/blogs">
+        <li className={pathname === "/career" ? "text-blue-500" : ""}>
+          Blogs
+        </li>
+      </Link>
       {/* <Link href='/contact'> <li>Get In Touch</li></Link> */}
       <Link href="/privacy">
         <li className={pathname === "/privacy" ? "text-blue-500" : ""}>

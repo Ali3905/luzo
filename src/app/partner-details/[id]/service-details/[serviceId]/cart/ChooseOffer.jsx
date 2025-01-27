@@ -1,14 +1,17 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ChevronRight, CircleX } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { clearOffer } from "../../../../../../redux/cartSlice";
+import Image from "next/image";
+import { CirclePercent } from 'lucide-react';
 
 const ChooseOffers = ({ onApplyOffer }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const appliedOffer = useSelector((state) => state.cart.appliedOffer);
+  const [isLoading, setIsLoading] = useState(false); // To manage loading state
 
   const handleRemoveOffer = (e) => {
     e.stopPropagation(); // Prevent navigation when clearing the offer
@@ -20,8 +23,13 @@ const ChooseOffers = ({ onApplyOffer }) => {
       // Trigger SuccessfullyApplied bottom sheet
       onApplyOffer(appliedOffer);
     } else {
-      // Navigate to the offers page
-      router.push("cart/offers");
+      setIsLoading(true); // Start loading
+      // Redirect to loading page
+      // router.push("/loading");  // Redirect to the loading page first
+      // Simulate a delay before navigating to the offers page (optional)
+      setTimeout(() => {
+        router.push("cart/offers"); // Then navigate to offers page
+      }, 500); // Adjust the delay as needed
     }
   };
 
@@ -37,7 +45,12 @@ const ChooseOffers = ({ onApplyOffer }) => {
             <p className="text-blue-500">{appliedOffer.code}</p>
           </>
         ) : (
-          <p className="text-gray-500">Choose Offer</p>
+          <p className=" text-[18px] text-gray-500 font-medium gap-1 flex items-center">
+            <video width="30" height="30" autoplay loop muted>
+              <source src="/MainScene.webm" type="video/webm" />
+            </video>
+            Choose Offer
+          </p>
         )}
       </div>
       {appliedOffer ? (
@@ -45,6 +58,9 @@ const ChooseOffers = ({ onApplyOffer }) => {
           onClick={handleRemoveOffer}
           className="cursor-pointer text-red-400 hover:text-red-600"
         />
+      ) : isLoading ? (
+        // Render the spinner during loading
+        <div className="spinner"></div>
       ) : (
         <ChevronRight className="text-gray-400" />
       )}

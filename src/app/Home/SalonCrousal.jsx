@@ -41,7 +41,7 @@ const SalonCrousal = () => {
         ],
         [
             { href: '/salon/Fingertips', imgSrc: '/Fingertips.png' },
-            { href: '/salon/Truefitt & Hill', imgSrc: '/Truefitt.png' },
+            { href: '/salon/Truefitt & Hill', imgSrc: '/Truefit.png' },
         ],
         [
             { href: '/salon/Aveda x Nykaa', imgSrc: '/Final_Logos/Aveda x Nykaa.png'},
@@ -85,7 +85,7 @@ const SalonCrousal = () => {
 
     return (
         <div className='  my-[30px] sm:my-[60px] 2xl:max-w-[1300px] xl:max-w-[1200px] lg:max-w-[1000px] sm:mx-auto relative'>
-            <h1 className='font-bold px-3 text-[30px]  mb-4 text-[#051036] '>700+ Salons | Spas | Dermatologists</h1>
+            <h1 className='font-bold px-3 text-[30px]  mb-4 text-[#051036] '>1000+ Salons | Spas | Dermatologists</h1>
             {/* <div> */}
 
             <div className='flex gap-[20px]'>

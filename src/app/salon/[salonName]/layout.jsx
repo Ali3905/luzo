@@ -41,7 +41,7 @@ export async function generateMetadata({ params }) {
     metadataBase: new URL('https://www.luzo.app'),
 
     title: `${transformString(salonName, true)} Salon | LUZO`,
-    description: `Book your salon appointment at ${transformString(salonName, false)} and avail 40% OFF exclusively on LUZO. Check out 700+ salon and spa offers near you with LUZO.`,
+    description: `Book your salon appointment at ${transformString(salonName, false)} and avail 40% OFF exclusively on LUZO. Check out 1000+ salon and spa offers near you with LUZO.`,
   }
 }
 

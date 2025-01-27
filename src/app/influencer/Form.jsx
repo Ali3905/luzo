@@ -9,87 +9,158 @@ import Swal from 'sweetalert2'
 const Form = () => {
   const { register, control, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm()
 
-  const submit = async (data) => {
-    const formData = new FormData()
-    Object.entries(data).forEach(([key, value]) => {
-      if (value instanceof File) {
-        formData.append(key, value);
-      } else if (Array.isArray(value)) {
-        value.forEach((item, index) => {
-          formData.append(`${key}[${index}]`, item);
-        });
-      } else {
-        formData.append(key, value);
-      }
-      formData.append("created_by", "web")
-      formData.append("type_of_entity", "test")
-      formData.append("other_notes", "be polite")
-    });
-
-    try {
-      const res = await axios({
-        method: "post",
-        url: `${process.env.NEXT_PUBLIC_HOST}/api/v1/influencer/details/create`,
-        data: formData,
-
-      })
-      reset()
-      Swal.fire({
-        title: 'Thank you for submitting. Our team will get in touch with you shortly. In the meantime, you can call or WhatsApp us at:',
-        icon: 'success',
-        html: '<a href="https://api.whatsapp.com/send?phone=918879949404" target="_blank" style="color: #007bff; text-decoration: none;">+91-8879949404</a>',
-        showConfirmButton: true,
-        allowOutsideClick: true,
-        confirmButtonText: "Ok"
+    // Convert file to base64 without the prefix
+    const convertToBase64 = (file) => {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          // Strip out the 'data:image/png;base64,' part
+          const base64String = reader.result.split(',')[1];
+          resolve(base64String);
+        };
+        reader.onerror = (error) => reject(error);
       });
-    } catch (error) {
-      console.log(error);
-      alert("Could not add lead")
-    }
-  };
+    };
+  
 
-  const formFields = [
-    { name: 'name', label: 'Name*', type: 'text', validation: { required: "Name is required" } },
-    {
-      name: 'contact',
-      label: 'Contact* ',
-      type: 'number',
-      validation: {
-        required: { value: true, message: "Your contact number is required" },
-        minLength: { value: 10, message: "Contact number must contain at least 10 digits" },
-        maxLength: { value: 10, message: "Contact number can only contain 10 digits" }
+    const submit = async (data) => {
+      const formData = new FormData();
+      const filePromises = [];
+  
+      // Loop through form data and handle file uploads
+      Object.entries(data).forEach(([key, value]) => {
+        if (value instanceof File) {
+          // If value is a file, convert it to base64 and add the promise to the list
+          filePromises.push(
+            convertToBase64(value).then((base64File) => {
+              formData.append(key, base64File); // Append base64 encoded file without the prefix
+            })
+          );
+        } else if (Array.isArray(value)) {
+          value.forEach((item, index) => {
+            if (item instanceof File) {
+              filePromises.push(
+                convertToBase64(item).then((base64File) => {
+                  formData.append(`${key}[${index}]`, base64File); // Append base64 encoded file in array
+                })
+              );
+            } else {
+              formData.append(`${key}[${index}]`, item);
+            }
+          });
+        } else {
+          formData.append(key, value); // Append other form data
+        }
+      });
+  
+      // Add static data to formData
+      formData.append("created_by", "web");
+      formData.append("type_of_entity", "test");
+      formData.append("other_notes", "be polite");
+  
+      // Wait for all base64 conversion promises to finish
+      await Promise.all(filePromises);
+  
+      try {
+        const res = await axios({
+          method: "post",
+          url: `${process.env.NEXT_PUBLIC_HOST}/api/v1/influencer/details/create`,
+          data: formData,
+        })
+        reset();
+        Swal.fire({
+          title: 'Thank you for submitting. Our team will get in touch with you shortly. In the meantime, you can call or WhatsApp us at:',
+          icon: 'success',
+          html: '<a href="https://api.whatsapp.com/send?phone=918879949404" target="_blank" style="color: #007bff; text-decoration: none;">+91-8879949404</a>',
+          showConfirmButton: true,
+          allowOutsideClick: true,
+          confirmButtonText: "Ok"
+        });
+      } catch (error) {
+        console.log(error);
+        alert("Could not add lead");
       }
-    },
-    { name: 'location', label: 'Where are you based?* Area, city', type: 'text', validation: { required: "Locatin is required" } },
-    { name: 'handle', label: 'Your Instagram / Youtube handle*', type: 'text', validation: { required: "Instagram / Youtube handle is required" } },
-    { name: 'followers', label: 'Approx followers / subscribers* ', type: 'text', validation: { required: "Follower count is required" } },
-    {
-      name: 'followers_ratio_image',
-      label: 'Attach screenshot of Men Women followers ratio (Optional)',
-      type: 'file',
-      fileType: "image/*",
-      // validation: { required: "This file is required" },
-      exampleImage: '/men-women-ratio.jpeg'
-    },
-    {
-      name: 'top_cities_image',
-      label: 'Attach screenshot of Top cities (Optional)',
-      type: 'file',
-      fileType: "image/*",
-      // validation: { required: "This file is required" },
-      exampleImage: '/cities.jpeg'
-    },
-    {
-      name: 'age_range_image',
-      label: 'Attach screenshot of Age range (Optional)',
-      type: 'file',
-      fileType: "image/*",
-      // validation: { required: "This file is required" },
-      exampleImage: '/Age-range.jpeg'
-    },
-    { name: 'about', label: 'Tell us about you and your audience (optional)', type: 'text' },
+    };
 
-  ];
+
+
+    const formFields = [
+      { 
+        name: 'name', 
+        label: 'Name*', 
+        type: 'text', 
+        validation: { required: "Name is required" } 
+      },
+      {
+        name: 'contact',
+        label: 'Contact* ',
+        type: 'number',
+        validation: {
+          required: { value: true, message: "Your contact number is required" },
+          minLength: { value: 10, message: "Contact number must contain at least 10 digits" },
+          maxLength: { value: 15, message: "Contact number can contain at most 15 digits" },
+          pattern: {
+            value: /^[0-9]{10,15}$/,
+            message: "Contact number must be a valid number between 10 to 15 digits"
+          },
+          validate: {
+            isPositive: value => value > 0 || "Contact number cannot be negative",
+          }
+        }
+      },
+      { 
+        name: 'location', 
+        label: 'Where are you based?* Area, city', 
+        type: 'text', 
+        validation: { required: "Location is required" } 
+      },
+      { 
+        name: 'handle', 
+        label: 'Your Instagram / Youtube handle*', 
+        type: 'text', 
+        validation: { required: "Instagram / Youtube handle is required" } 
+      },
+      { 
+        name: 'followers', 
+        label: 'Approx followers / subscribers* ', 
+        type: 'text', 
+        validation: { 
+          required: "Follower count is required", 
+          pattern: {
+            value: /^[0-9]*$/,
+            message: "Only numbers are allowed in the follower count"
+          }
+        } 
+      },
+      {
+        name: 'followers_ratio_image',
+        label: 'Attach screenshot of Men Women followers ratio (Optional)',
+        type: 'file',
+        fileType: "image/*",
+        exampleImage: '/men-women-ratio.jpeg'
+      },
+      {
+        name: 'top_cities_image',
+        label: 'Attach screenshot of Top cities (Optional)',
+        type: 'file',
+        fileType: "image/*",
+        exampleImage: '/cities.jpeg'
+      },
+      {
+        name: 'age_range_image',
+        label: 'Attach screenshot of Age range (Optional)',
+        type: 'file',
+        fileType: "image/*",
+        exampleImage: '/Age-range.jpeg'
+      },
+      { 
+        name: 'about', 
+        label: 'Tell us about you and your audience (optional)', 
+        type: 'text' 
+      },
+    ];
+    
 
   return (
     <div className='my-8  max-w-[1200px] mx-auto'>

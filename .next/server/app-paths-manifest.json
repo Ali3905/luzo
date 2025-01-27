@@ -1,8 +1,8 @@
 {
+  "/partner-details/[id]/page": "app/partner-details/[id]/page.js",
+  "/salon-photos/[id]/page": "app/salon-photos/[id]/page.js",
   "/partner-details/[id]/service-details/[serviceId]/page": "app/partner-details/[id]/service-details/[serviceId]/page.js",
   "/partner-details/[id]/service-details/[serviceId]/cart/page": "app/partner-details/[id]/service-details/[serviceId]/cart/page.js",
-  "/partner-details/[id]/service-details/[serviceId]/cart/offers/page": "app/partner-details/[id]/service-details/[serviceId]/cart/offers/page.js",
-  "/partner-details/[id]/page": "app/partner-details/[id]/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/salon/[salonName]/page": "app/salon/[salonName]/page.js"
 }

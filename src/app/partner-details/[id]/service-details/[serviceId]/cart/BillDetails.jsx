@@ -1,10 +1,11 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ChevronRight, ChevronUp, ChevronDown, X } from 'lucide-react';
 import Image from 'next/image';
 import { useDispatch, useSelector } from 'react-redux';
 import { editCart, removeFromCart } from '../../../../../../redux/cartSlice';
 import BottomSheet from '../BottomSheet';
+import { useParams, useRouter } from 'next/navigation';
 
 const BillDetails = () => {
   const [isCartOpen, setIsCartOpen] = useState(false)
@@ -13,9 +14,17 @@ const BillDetails = () => {
   const discount = useSelector((state) => state.cart.discount);
   let total = 0;
   const dispatch = useDispatch();
+  const {id}  = useParams()
 
   // State to manage visibility of services
   const [isOpen, setIsOpen] = useState(true);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (cart.length < 1) {
+      router.push(`/partner-details/${id}`)
+    }
+  }, [cart])
 
   // Toggle visibility
   const toggleVisibility = () => {
@@ -26,7 +35,7 @@ const BillDetails = () => {
     <div className='px-[10px] mt-2'>
       <div className='bg-white rounded-md p-3'>
         <div className='border-b mb-4'>
-          <h1 className='text-[14px] font-bold mb-3'>Bill Details</h1>
+          <h1 className='text-[14px] font-bold mb-2'>Bill Details</h1>
           <div className='flex justify-between'>
             <p className='font-medium text-[12px] flex gap-1 items-center'>
               Your Services
@@ -68,7 +77,10 @@ const BillDetails = () => {
                   <div className='ml-4'>
                     <p className='text-[9px] border-b'>{ele.one_line_description}</p>
                     <p className='text-[14px]'>{ele.name}</p>
-                    <p className='text-[12px]'>From ₹ {ele.display_rate} + GST</p>
+                    <p className="text-[12px]">
+                      From ₹ {parseInt(ele.display_rate).toLocaleString()} + GST
+                    </p>
+
                     {ele.customizations && ele.customizations.length > 0 && <p className='text-[12px] text-blue-300' onClick={() => {
                       setIsCartOpen(true)
                       setSelectedId(ele.id)
@@ -84,7 +96,7 @@ const BillDetails = () => {
                   }}
                   service={ele}
                   isEdit={true}
-                  // salon={salon}
+                // salon={salon}
                 />}
               </div>
             );

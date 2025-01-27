@@ -129,14 +129,14 @@ const MainContent = () => {
       ) : (
         services && (
           <div className="mt-4 bg-white">
-            <div className="border mx-2 flex items-center rounded-md p-2">
+            {/* <div className="border mx-2 flex items-center rounded-md p-2">
               <Search size={15} className="mr-2" />
               <input
                 type="text"
                 placeholder="Search for service..."
                 className="focus:outline-none"
               />
-            </div>
+            </div> */}
             <div className="flex mt-2 mx-2 sm:justify-start justify-between gap-2">
               <button className="border rounded-md px-8 flex items-center gap-2">
                 <Image src="/Men.svg" alt="img" width={12} height={12} /> Men
@@ -270,33 +270,34 @@ const MainContent = () => {
 
       {/* Add to Cart Section */}
       {/* Add to Cart Section */}
-      {showCartModal && !selectedServiceId && (
-        <div className="fixed bottom-2 mx-4 left-0 right-0 w-auto rounded-xl bg-white border-gray-600 p-2 shadow-2xl">
-          <div className="flex justify-between items-center mb-2">
-            <span>
-              <p className="font-bold capitalize">{id.split("-")[0]}</p>
-              <p>{cart?.length || 0} item</p>
-            </span>
-            <div className="flex items-center gap-2">
-              <button
-                className="bg-blue-400 rounded-2xl text-white px-4 py-2 mt-2"
-                onClick={() =>
-                  router.push(`/partner-details/${id}/service-details/${serviceId}/cart`)
-                }
-              >
-                View Cart
-              </button>
+      {showCartModal && !selectedServiceId && cart.length > 0 && (
+      <div className="fixed bottom-2 mx-4 left-0 right-0 w-auto rounded-xl bg-white border border-gray-600 p-2 shadow-2xl">
+        <div className="flex justify-between items-center  mb-2">
+          <span>
+            <p className="font-bold capitalize">{id.split("-")[0]}</p>
+            <p>{cart?.length || 0} item</p>
+          </span>
+          <div className="flex items-center gap-2">
+            <button
+              className="bg-blue-400 rounded-xl text-[14px] text-white px-3 py-1 mt-2"
+              onClick={() =>
+                router.push(`/partner-details/${id}/service-details/${serviceId}/cart`)
+              }
+            >
+              View Cart
+            </button>
 
-              <button
-                className="text-red-400 text-sm font-semibold"
-                onClick={() => setShowCartModal(false)}
-              >
-                <CircleX />
-              </button>
-            </div>
+            <button
+              className="text-red-400 text-sm font-semibold"
+              onClick={() => setShowCartModal(false)}
+            >
+              <CircleX />
+            </button>
           </div>
         </div>
-      )}
+      </div>
+)}
+
 
     </div>
 
