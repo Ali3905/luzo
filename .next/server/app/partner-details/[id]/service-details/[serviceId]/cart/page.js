@@ -89,6 +89,72 @@ module.exports = require("next/dist/compiled/next-server/app-page.runtime.dev.js
 
 /***/ }),
 
+/***/ "assert":
+/*!*************************!*\
+  !*** external "assert" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("assert");
+
+/***/ }),
+
+/***/ "events":
+/*!*************************!*\
+  !*** external "events" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("events");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "http":
+/*!***********************!*\
+  !*** external "http" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("http");
+
+/***/ }),
+
+/***/ "https":
+/*!************************!*\
+  !*** external "https" ***!
+  \************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("https");
+
+/***/ }),
+
+/***/ "os":
+/*!*********************!*\
+  !*** external "os" ***!
+  \*********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("os");
+
+/***/ }),
+
 /***/ "path":
 /*!***********************!*\
   !*** external "path" ***!
@@ -100,6 +166,28 @@ module.exports = require("path");
 
 /***/ }),
 
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "tty":
+/*!**********************!*\
+  !*** external "tty" ***!
+  \**********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("tty");
+
+/***/ }),
+
 /***/ "url":
 /*!**********************!*\
   !*** external "url" ***!
@@ -108,6 +196,28 @@ module.exports = require("path");
 
 "use strict";
 module.exports = require("url");
+
+/***/ }),
+
+/***/ "util":
+/*!***********************!*\
+  !*** external "util" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("util");
+
+/***/ }),
+
+/***/ "zlib":
+/*!***********************!*\
+  !*** external "zlib" ***!
+  \***********************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("zlib");
 
 /***/ }),
 
@@ -246,7 +356,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_navigation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/navigation */ \"(ssr)/./node_modules/next/dist/api/navigation.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst LocationSupport = ()=>{\n    const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);\n    const { id } = (0,next_navigation__WEBPACK_IMPORTED_MODULE_1__.useParams)();\n    const getLocation = async ()=>{\n        try {\n            const res = await axios({\n                method: \"post\",\n                url: `${\"https://acting-prod.salonsurf.in\"}/api/v1/salon/${id.split(\"-\")[id.split(\"-\").length - 1]}`,\n                params: {\n                    customerId: 518,\n                    latitude: \"na\",\n                    longitude: \"na\",\n                    id: id\n                }\n            });\n            // Check if the status code is not 200 (e.g., 404 Not Found)\n            // if (res.status !== 200 || res.data.status !== \"Success\") {\n            //   throw new Error(\"Failed to fetch salon info\");\n            // }\n            console.log({\n                dat: res.data?.data.salon?.salonData?.[0].salon\n            });\n            setData(res.data?.data.salon?.salonData?.[0].salon);\n        } catch (error) {\n            console.error(\"Error fetching salon info:\", error);\n            return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"flex justify-center items-center w-full h-screen\",\n                children: error.response?.status === 404 ? \"Salon not found (404)\" : \"Could not load the salon info\"\n            }, void 0, false, {\n                fileName: \"D:\\\\Programming\\\\UnderWork\\\\luzo-next-latest-main\\\\src\\\\app\\\\partner-details\\\\[id]\\\\service-details\\\\[serviceId]\\\\cart\\\\LocationSupport.jsx\",\n                lineNumber: 34,\n                columnNumber: 9\n            }, undefined);\n        }\n    };\n    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{\n        getLocation();\n    }, []);\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"mt-[80px]  px-[10px]\",\n        children: data && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n            className: \"flex bg-white p-2 rounded-md text-[14px] items-center justify-between\",\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h3\", {\n                className: \"max-w-[70%] font-bold\",\n                children: [\n                    data?.salon_name,\n                    \", \",\n                    data?.salon_location\n                ]\n            }, void 0, true, {\n                fileName: \"D:\\\\Programming\\\\UnderWork\\\\luzo-next-latest-main\\\\src\\\\app\\\\partner-details\\\\[id]\\\\service-details\\\\[serviceId]\\\\cart\\\\LocationSupport.jsx\",\n                lineNumber: 46,\n                columnNumber: 9\n            }, undefined)\n        }, void 0, false, {\n            fileName: \"D:\\\\Programming\\\\UnderWork\\\\luzo-next-latest-main\\\\src\\\\app\\\\partner-details\\\\[id]\\\\service-details\\\\[serviceId]\\\\cart\\\\LocationSupport.jsx\",\n            lineNumber: 45,\n            columnNumber: 16\n        }, undefined)\n    }, void 0, false, {\n        fileName: \"D:\\\\Programming\\\\UnderWork\\\\luzo-next-latest-main\\\\src\\\\app\\\\partner-details\\\\[id]\\\\service-details\\\\[serviceId]\\\\cart\\\\LocationSupport.jsx\",\n        lineNumber: 44,\n        columnNumber: 5\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LocationSupport);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9zcmMvYXBwL3BhcnRuZXItZGV0YWlscy9baWRdL3NlcnZpY2UtZGV0YWlscy9bc2VydmljZUlkXS9jYXJ0L0xvY2F0aW9uU3VwcG9ydC5qc3giLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7OztBQUE0QztBQUNNO0FBRWxELE1BQU1JLGtCQUFrQjtJQUN0QixNQUFNLENBQUNDLE1BQU1DLFFBQVEsR0FBR0gsK0NBQVFBLENBQUM7SUFDakMsTUFBTSxFQUFFSSxFQUFFLEVBQUUsR0FBR1AsMERBQVNBO0lBQ3hCLE1BQU1RLGNBQWM7UUFDbEIsSUFBSTtZQUNGLE1BQU1DLE1BQU0sTUFBTUMsTUFBTTtnQkFDdEJDLFFBQVE7Z0JBQ1JDLEtBQUssQ0FBQyxFQUFFQyxrQ0FBbUMsQ0FBQyxjQUFjLEVBQUVOLEdBQUdTLEtBQUssQ0FBQyxJQUFJLENBQUNULEdBQUdTLEtBQUssQ0FBQyxLQUFLQyxNQUFNLEdBQUcsRUFBRSxDQUFDLENBQUM7Z0JBQ3JHQyxRQUFRO29CQUNOQyxZQUFZO29CQUNaQyxVQUFVO29CQUNWQyxXQUFXO29CQUNYZCxJQUFJQTtnQkFDTjtZQUNGO1lBRUEsNERBQTREO1lBQzVELDZEQUE2RDtZQUM3RCxtREFBbUQ7WUFDbkQsSUFBSTtZQUVKZSxRQUFRQyxHQUFHLENBQUM7Z0JBQUNDLEtBQU1mLElBQUlKLElBQUksRUFBRUEsS0FBS29CLE9BQU9DLFdBQVcsQ0FBQyxFQUFFLENBQUNEO1lBQUs7WUFHN0RuQixRQUFRRyxJQUFJSixJQUFJLEVBQUVBLEtBQUtvQixPQUFPQyxXQUFXLENBQUMsRUFBRSxDQUFDRDtRQUUvQyxFQUFFLE9BQU9FLE9BQU87WUFDZEwsUUFBUUssS0FBSyxDQUFDLDhCQUE4QkE7WUFFNUMscUJBQ0UsOERBQUNDO2dCQUFJQyxXQUFVOzBCQUNaRixNQUFNRyxRQUFRLEVBQUVDLFdBQVcsTUFBTSwwQkFBMEI7Ozs7OztRQUdsRTtJQUNGO0lBQ0E3QixnREFBU0EsQ0FBQztRQUNSTTtJQUNGLEdBQUcsRUFBRTtJQUNMLHFCQUNFLDhEQUFDb0I7UUFBSUMsV0FBVTtrQkFDWnhCLHNCQUFRLDhEQUFDdUI7WUFBSUMsV0FBVTtzQkFDdEIsNEVBQUNHO2dCQUFHSCxXQUFVOztvQkFBeUJ4QixNQUFNNEI7b0JBQVc7b0JBQUc1QixNQUFNNkI7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBS3pFO0FBRUEsaUVBQWU5QixlQUFlQSxFQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vbXktYXBwLy4vc3JjL2FwcC9wYXJ0bmVyLWRldGFpbHMvW2lkXS9zZXJ2aWNlLWRldGFpbHMvW3NlcnZpY2VJZF0vY2FydC9Mb2NhdGlvblN1cHBvcnQuanN4Pzk5M2UiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgdXNlUGFyYW1zIH0gZnJvbSAnbmV4dC9uYXZpZ2F0aW9uJztcbmltcG9ydCBSZWFjdCwgeyB1c2VFZmZlY3QsIHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnXG5cbmNvbnN0IExvY2F0aW9uU3VwcG9ydCA9ICgpID0+IHtcbiAgY29uc3QgW2RhdGEsIHNldERhdGFdID0gdXNlU3RhdGUobnVsbClcbiAgY29uc3QgeyBpZCB9ID0gdXNlUGFyYW1zKClcbiAgY29uc3QgZ2V0TG9jYXRpb24gPSBhc3luYyAoKSA9PiB7XG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGF4aW9zKHtcbiAgICAgICAgbWV0aG9kOiBcInBvc3RcIixcbiAgICAgICAgdXJsOiBgJHtwcm9jZXNzLmVudi5ORVhUX1BVQkxJQ19TRVJWRVJfSE9TVH0vYXBpL3YxL3NhbG9uLyR7aWQuc3BsaXQoXCItXCIpW2lkLnNwbGl0KFwiLVwiKS5sZW5ndGggLSAxXX1gLFxuICAgICAgICBwYXJhbXM6IHtcbiAgICAgICAgICBjdXN0b21lcklkOiA1MTgsXG4gICAgICAgICAgbGF0aXR1ZGU6IFwibmFcIixcbiAgICAgICAgICBsb25naXR1ZGU6IFwibmFcIixcbiAgICAgICAgICBpZDogaWRcbiAgICAgICAgfVxuICAgICAgfSk7XG5cbiAgICAgIC8vIENoZWNrIGlmIHRoZSBzdGF0dXMgY29kZSBpcyBub3QgMjAwIChlLmcuLCA0MDQgTm90IEZvdW5kKVxuICAgICAgLy8gaWYgKHJlcy5zdGF0dXMgIT09IDIwMCB8fCByZXMuZGF0YS5zdGF0dXMgIT09IFwiU3VjY2Vzc1wiKSB7XG4gICAgICAvLyAgIHRocm93IG5ldyBFcnJvcihcIkZhaWxlZCB0byBmZXRjaCBzYWxvbiBpbmZvXCIpO1xuICAgICAgLy8gfVxuXG4gICAgICBjb25zb2xlLmxvZyh7ZGF0IDogcmVzLmRhdGE/LmRhdGEuc2Fsb24/LnNhbG9uRGF0YT8uWzBdLnNhbG9ufSk7XG4gICAgICBcblxuICAgICAgc2V0RGF0YShyZXMuZGF0YT8uZGF0YS5zYWxvbj8uc2Fsb25EYXRhPy5bMF0uc2Fsb24pXG5cbiAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgY29uc29sZS5lcnJvcihcIkVycm9yIGZldGNoaW5nIHNhbG9uIGluZm86XCIsIGVycm9yKTtcblxuICAgICAgcmV0dXJuIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9J2ZsZXgganVzdGlmeS1jZW50ZXIgaXRlbXMtY2VudGVyIHctZnVsbCBoLXNjcmVlbic+XG4gICAgICAgICAge2Vycm9yLnJlc3BvbnNlPy5zdGF0dXMgPT09IDQwNCA/IFwiU2Fsb24gbm90IGZvdW5kICg0MDQpXCIgOiBcIkNvdWxkIG5vdCBsb2FkIHRoZSBzYWxvbiBpbmZvXCJ9XG4gICAgICAgIDwvZGl2PlxuICAgICAgKVxuICAgIH1cbiAgfVxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIGdldExvY2F0aW9uKClcbiAgfSwgW10pXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9J210LVs4MHB4XSAgcHgtWzEwcHhdJz5cbiAgICAgIHtkYXRhICYmIDxkaXYgY2xhc3NOYW1lPSdmbGV4IGJnLXdoaXRlIHAtMiByb3VuZGVkLW1kIHRleHQtWzE0cHhdIGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4nPlxuICAgICAgICA8aDMgY2xhc3NOYW1lPSdtYXgtdy1bNzAlXSBmb250LWJvbGQnPntkYXRhPy5zYWxvbl9uYW1lfSwge2RhdGE/LnNhbG9uX2xvY2F0aW9ufTwvaDM+XG4gICAgICAgIHsvKiA8aDMgY2xhc3NOYW1lPSdib3JkZXItYiBib3JkZXItYmx1ZS01MDAgdGV4dC1ibHVlLTUwMCc+U3VwcG9ydDwvaDM+ICovfVxuICAgICAgPC9kaXY+fVxuICAgIDwvZGl2PlxuICApXG59XG5cbmV4cG9ydCBkZWZhdWx0IExvY2F0aW9uU3VwcG9ydFxuXG5cblxuXG5cbiJdLCJuYW1lcyI6WyJ1c2VQYXJhbXMiLCJSZWFjdCIsInVzZUVmZmVjdCIsInVzZVN0YXRlIiwiTG9jYXRpb25TdXBwb3J0IiwiZGF0YSIsInNldERhdGEiLCJpZCIsImdldExvY2F0aW9uIiwicmVzIiwiYXhpb3MiLCJtZXRob2QiLCJ1cmwiLCJwcm9jZXNzIiwiZW52IiwiTkVYVF9QVUJMSUNfU0VSVkVSX0hPU1QiLCJzcGxpdCIsImxlbmd0aCIsInBhcmFtcyIsImN1c3RvbWVySWQiLCJsYXRpdHVkZSIsImxvbmdpdHVkZSIsImNvbnNvbGUiLCJsb2ciLCJkYXQiLCJzYWxvbiIsInNhbG9uRGF0YSIsImVycm9yIiwiZGl2IiwiY2xhc3NOYW1lIiwicmVzcG9uc2UiLCJzdGF0dXMiLCJoMyIsInNhbG9uX25hbWUiLCJzYWxvbl9sb2NhdGlvbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./src/app/partner-details/[id]/service-details/[serviceId]/cart/LocationSupport.jsx\n");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"(ssr)/./node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ \"(ssr)/./node_modules/axios/lib/axios.js\");\n/* harmony import */ var next_navigation__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/navigation */ \"(ssr)/./node_modules/next/dist/api/navigation.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"(ssr)/./node_modules/next/dist/server/future/route-modules/app-page/vendored/ssr/react.js\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\n\nconst LocationSupport = ()=>{\n    const [data, setData] = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)(null);\n    const { id } = (0,next_navigation__WEBPACK_IMPORTED_MODULE_1__.useParams)();\n    const getLocation = async ()=>{\n        try {\n            const res = await (0,axios__WEBPACK_IMPORTED_MODULE_3__[\"default\"])({\n                method: \"post\",\n                url: `${\"https://acting-prod.salonsurf.in\"}/api/v1/salon/${id.split(\"-\")[id.split(\"-\").length - 1]}`,\n                params: {\n                    customerId: 518,\n                    latitude: \"na\",\n                    longitude: \"na\",\n                    id: id\n                }\n            });\n            // Check if the status code is not 200 (e.g., 404 Not Found)\n            // if (res.status !== 200 || res.data.status !== \"Success\") {\n            //   throw new Error(\"Failed to fetch salon info\");\n            // }\n            console.log({\n                dat: res.data?.data.salon?.salonData?.[0].salon\n            });\n            setData(res.data?.data.salon?.salonData?.[0].salon);\n        } catch (error) {\n            console.error(\"Error fetching salon info:\", error);\n            return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"flex justify-center items-center w-full h-screen\",\n                children: error.response?.status === 404 ? \"Salon not found (404)\" : \"Could not load the salon info\"\n            }, void 0, false, {\n                fileName: \"D:\\\\Programming\\\\UnderWork\\\\luzo-next-latest-main\\\\src\\\\app\\\\partner-details\\\\[id]\\\\service-details\\\\[serviceId]\\\\cart\\\\LocationSupport.jsx\",\n                lineNumber: 35,\n                columnNumber: 9\n            }, undefined);\n        }\n    };\n    (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(()=>{\n        getLocation();\n    }, []);\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n        className: \"mt-[80px]  px-[10px]\",\n        children: data && /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n            className: \"flex bg-white p-2 rounded-md text-[14px] items-center justify-between\",\n            children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h3\", {\n                className: \"max-w-[70%] font-bold\",\n                children: [\n                    data?.salon_name,\n                    \", \",\n                    data?.salon_location\n                ]\n            }, void 0, true, {\n                fileName: \"D:\\\\Programming\\\\UnderWork\\\\luzo-next-latest-main\\\\src\\\\app\\\\partner-details\\\\[id]\\\\service-details\\\\[serviceId]\\\\cart\\\\LocationSupport.jsx\",\n                lineNumber: 47,\n                columnNumber: 9\n            }, undefined)\n        }, void 0, false, {\n            fileName: \"D:\\\\Programming\\\\UnderWork\\\\luzo-next-latest-main\\\\src\\\\app\\\\partner-details\\\\[id]\\\\service-details\\\\[serviceId]\\\\cart\\\\LocationSupport.jsx\",\n            lineNumber: 46,\n            columnNumber: 16\n        }, undefined)\n    }, void 0, false, {\n        fileName: \"D:\\\\Programming\\\\UnderWork\\\\luzo-next-latest-main\\\\src\\\\app\\\\partner-details\\\\[id]\\\\service-details\\\\[serviceId]\\\\cart\\\\LocationSupport.jsx\",\n        lineNumber: 45,\n        columnNumber: 5\n    }, undefined);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LocationSupport);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHNzcikvLi9zcmMvYXBwL3BhcnRuZXItZGV0YWlscy9baWRdL3NlcnZpY2UtZGV0YWlscy9bc2VydmljZUlkXS9jYXJ0L0xvY2F0aW9uU3VwcG9ydC5qc3giLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBMEI7QUFDa0I7QUFDTTtBQUVsRCxNQUFNSyxrQkFBa0I7SUFDdEIsTUFBTSxDQUFDQyxNQUFNQyxRQUFRLEdBQUdILCtDQUFRQSxDQUFDO0lBQ2pDLE1BQU0sRUFBRUksRUFBRSxFQUFFLEdBQUdQLDBEQUFTQTtJQUN4QixNQUFNUSxjQUFjO1FBQ2xCLElBQUk7WUFDRixNQUFNQyxNQUFNLE1BQU1WLGlEQUFLQSxDQUFDO2dCQUN0QlcsUUFBUTtnQkFDUkMsS0FBSyxDQUFDLEVBQUVDLGtDQUFtQyxDQUFDLGNBQWMsRUFBRUwsR0FBR1EsS0FBSyxDQUFDLElBQUksQ0FBQ1IsR0FBR1EsS0FBSyxDQUFDLEtBQUtDLE1BQU0sR0FBRyxFQUFFLENBQUMsQ0FBQztnQkFDckdDLFFBQVE7b0JBQ05DLFlBQVk7b0JBQ1pDLFVBQVU7b0JBQ1ZDLFdBQVc7b0JBQ1hiLElBQUlBO2dCQUNOO1lBQ0Y7WUFFQSw0REFBNEQ7WUFDNUQsNkRBQTZEO1lBQzdELG1EQUFtRDtZQUNuRCxJQUFJO1lBRUpjLFFBQVFDLEdBQUcsQ0FBQztnQkFBQ0MsS0FBTWQsSUFBSUosSUFBSSxFQUFFQSxLQUFLbUIsT0FBT0MsV0FBVyxDQUFDLEVBQUUsQ0FBQ0Q7WUFBSztZQUc3RGxCLFFBQVFHLElBQUlKLElBQUksRUFBRUEsS0FBS21CLE9BQU9DLFdBQVcsQ0FBQyxFQUFFLENBQUNEO1FBRS9DLEVBQUUsT0FBT0UsT0FBTztZQUNkTCxRQUFRSyxLQUFLLENBQUMsOEJBQThCQTtZQUU1QyxxQkFDRSw4REFBQ0M7Z0JBQUlDLFdBQVU7MEJBQ1pGLE1BQU1HLFFBQVEsRUFBRUMsV0FBVyxNQUFNLDBCQUEwQjs7Ozs7O1FBR2xFO0lBQ0Y7SUFDQTVCLGdEQUFTQSxDQUFDO1FBQ1JNO0lBQ0YsR0FBRyxFQUFFO0lBQ0wscUJBQ0UsOERBQUNtQjtRQUFJQyxXQUFVO2tCQUNadkIsc0JBQVEsOERBQUNzQjtZQUFJQyxXQUFVO3NCQUN0Qiw0RUFBQ0c7Z0JBQUdILFdBQVU7O29CQUF5QnZCLE1BQU0yQjtvQkFBVztvQkFBRzNCLE1BQU00Qjs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFLekU7QUFFQSxpRUFBZTdCLGVBQWVBLEVBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9teS1hcHAvLi9zcmMvYXBwL3BhcnRuZXItZGV0YWlscy9baWRdL3NlcnZpY2UtZGV0YWlscy9bc2VydmljZUlkXS9jYXJ0L0xvY2F0aW9uU3VwcG9ydC5qc3g/OTkzZSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgYXhpb3MgZnJvbSAnYXhpb3MnO1xuaW1wb3J0IHsgdXNlUGFyYW1zIH0gZnJvbSAnbmV4dC9uYXZpZ2F0aW9uJztcbmltcG9ydCBSZWFjdCwgeyB1c2VFZmZlY3QsIHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnXG5cbmNvbnN0IExvY2F0aW9uU3VwcG9ydCA9ICgpID0+IHtcbiAgY29uc3QgW2RhdGEsIHNldERhdGFdID0gdXNlU3RhdGUobnVsbClcbiAgY29uc3QgeyBpZCB9ID0gdXNlUGFyYW1zKClcbiAgY29uc3QgZ2V0TG9jYXRpb24gPSBhc3luYyAoKSA9PiB7XG4gICAgdHJ5IHtcbiAgICAgIGNvbnN0IHJlcyA9IGF3YWl0IGF4aW9zKHtcbiAgICAgICAgbWV0aG9kOiBcInBvc3RcIixcbiAgICAgICAgdXJsOiBgJHtwcm9jZXNzLmVudi5ORVhUX1BVQkxJQ19TRVJWRVJfSE9TVH0vYXBpL3YxL3NhbG9uLyR7aWQuc3BsaXQoXCItXCIpW2lkLnNwbGl0KFwiLVwiKS5sZW5ndGggLSAxXX1gLFxuICAgICAgICBwYXJhbXM6IHtcbiAgICAgICAgICBjdXN0b21lcklkOiA1MTgsXG4gICAgICAgICAgbGF0aXR1ZGU6IFwibmFcIixcbiAgICAgICAgICBsb25naXR1ZGU6IFwibmFcIixcbiAgICAgICAgICBpZDogaWRcbiAgICAgICAgfVxuICAgICAgfSk7XG5cbiAgICAgIC8vIENoZWNrIGlmIHRoZSBzdGF0dXMgY29kZSBpcyBub3QgMjAwIChlLmcuLCA0MDQgTm90IEZvdW5kKVxuICAgICAgLy8gaWYgKHJlcy5zdGF0dXMgIT09IDIwMCB8fCByZXMuZGF0YS5zdGF0dXMgIT09IFwiU3VjY2Vzc1wiKSB7XG4gICAgICAvLyAgIHRocm93IG5ldyBFcnJvcihcIkZhaWxlZCB0byBmZXRjaCBzYWxvbiBpbmZvXCIpO1xuICAgICAgLy8gfVxuXG4gICAgICBjb25zb2xlLmxvZyh7ZGF0IDogcmVzLmRhdGE/LmRhdGEuc2Fsb24/LnNhbG9uRGF0YT8uWzBdLnNhbG9ufSk7XG4gICAgICBcblxuICAgICAgc2V0RGF0YShyZXMuZGF0YT8uZGF0YS5zYWxvbj8uc2Fsb25EYXRhPy5bMF0uc2Fsb24pXG5cbiAgICB9IGNhdGNoIChlcnJvcikge1xuICAgICAgY29uc29sZS5lcnJvcihcIkVycm9yIGZldGNoaW5nIHNhbG9uIGluZm86XCIsIGVycm9yKTtcblxuICAgICAgcmV0dXJuIChcbiAgICAgICAgPGRpdiBjbGFzc05hbWU9J2ZsZXgganVzdGlmeS1jZW50ZXIgaXRlbXMtY2VudGVyIHctZnVsbCBoLXNjcmVlbic+XG4gICAgICAgICAge2Vycm9yLnJlc3BvbnNlPy5zdGF0dXMgPT09IDQwNCA/IFwiU2Fsb24gbm90IGZvdW5kICg0MDQpXCIgOiBcIkNvdWxkIG5vdCBsb2FkIHRoZSBzYWxvbiBpbmZvXCJ9XG4gICAgICAgIDwvZGl2PlxuICAgICAgKVxuICAgIH1cbiAgfVxuICB1c2VFZmZlY3QoKCkgPT4ge1xuICAgIGdldExvY2F0aW9uKClcbiAgfSwgW10pXG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9J210LVs4MHB4XSAgcHgtWzEwcHhdJz5cbiAgICAgIHtkYXRhICYmIDxkaXYgY2xhc3NOYW1lPSdmbGV4IGJnLXdoaXRlIHAtMiByb3VuZGVkLW1kIHRleHQtWzE0cHhdIGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4nPlxuICAgICAgICA8aDMgY2xhc3NOYW1lPSdtYXgtdy1bNzAlXSBmb250LWJvbGQnPntkYXRhPy5zYWxvbl9uYW1lfSwge2RhdGE/LnNhbG9uX2xvY2F0aW9ufTwvaDM+XG4gICAgICAgIHsvKiA8aDMgY2xhc3NOYW1lPSdib3JkZXItYiBib3JkZXItYmx1ZS01MDAgdGV4dC1ibHVlLTUwMCc+U3VwcG9ydDwvaDM+ICovfVxuICAgICAgPC9kaXY+fVxuICAgIDwvZGl2PlxuICApXG59XG5cbmV4cG9ydCBkZWZhdWx0IExvY2F0aW9uU3VwcG9ydFxuXG5cblxuXG5cbiJdLCJuYW1lcyI6WyJheGlvcyIsInVzZVBhcmFtcyIsIlJlYWN0IiwidXNlRWZmZWN0IiwidXNlU3RhdGUiLCJMb2NhdGlvblN1cHBvcnQiLCJkYXRhIiwic2V0RGF0YSIsImlkIiwiZ2V0TG9jYXRpb24iLCJyZXMiLCJtZXRob2QiLCJ1cmwiLCJwcm9jZXNzIiwiZW52IiwiTkVYVF9QVUJMSUNfU0VSVkVSX0hPU1QiLCJzcGxpdCIsImxlbmd0aCIsInBhcmFtcyIsImN1c3RvbWVySWQiLCJsYXRpdHVkZSIsImxvbmdpdHVkZSIsImNvbnNvbGUiLCJsb2ciLCJkYXQiLCJzYWxvbiIsInNhbG9uRGF0YSIsImVycm9yIiwiZGl2IiwiY2xhc3NOYW1lIiwicmVzcG9uc2UiLCJzdGF0dXMiLCJoMyIsInNhbG9uX25hbWUiLCJzYWxvbl9sb2NhdGlvbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(ssr)/./src/app/partner-details/[id]/service-details/[serviceId]/cart/LocationSupport.jsx\n");
 
 /***/ }),
 
@@ -418,7 +528,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 var __webpack_require__ = require("../../../../../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/@fortawesome","vendor-chunks/lucide-react","vendor-chunks/@reduxjs","vendor-chunks/react-redux","vendor-chunks/immer","vendor-chunks/reselect","vendor-chunks/redux","vendor-chunks/use-sync-external-store","vendor-chunks/redux-thunk"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fpartner-details%2F%5Bid%5D%2Fservice-details%2F%5BserviceId%5D%2Fcart%2Fpage&page=%2Fpartner-details%2F%5Bid%5D%2Fservice-details%2F%5BserviceId%5D%2Fcart%2Fpage&appPaths=%2Fpartner-details%2F%5Bid%5D%2Fservice-details%2F%5BserviceId%5D%2Fcart%2Fpage&pagePath=private-next-app-dir%2Fpartner-details%2F%5Bid%5D%2Fservice-details%2F%5BserviceId%5D%2Fcart%2Fpage.jsx&appDir=D%3A%5CProgramming%5CUnderWork%5Cluzo-next-latest-main%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5CProgramming%5CUnderWork%5Cluzo-next-latest-main&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/@swc","vendor-chunks/mime-db","vendor-chunks/axios","vendor-chunks/@fortawesome","vendor-chunks/follow-redirects","vendor-chunks/debug","vendor-chunks/form-data","vendor-chunks/asynckit","vendor-chunks/lucide-react","vendor-chunks/combined-stream","vendor-chunks/mime-types","vendor-chunks/proxy-from-env","vendor-chunks/ms","vendor-chunks/supports-color","vendor-chunks/delayed-stream","vendor-chunks/has-flag","vendor-chunks/@reduxjs","vendor-chunks/react-redux","vendor-chunks/immer","vendor-chunks/reselect","vendor-chunks/redux","vendor-chunks/use-sync-external-store","vendor-chunks/redux-thunk"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fpartner-details%2F%5Bid%5D%2Fservice-details%2F%5BserviceId%5D%2Fcart%2Fpage&page=%2Fpartner-details%2F%5Bid%5D%2Fservice-details%2F%5BserviceId%5D%2Fcart%2Fpage&appPaths=%2Fpartner-details%2F%5Bid%5D%2Fservice-details%2F%5BserviceId%5D%2Fcart%2Fpage&pagePath=private-next-app-dir%2Fpartner-details%2F%5Bid%5D%2Fservice-details%2F%5BserviceId%5D%2Fcart%2Fpage.jsx&appDir=D%3A%5CProgramming%5CUnderWork%5Cluzo-next-latest-main%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=D%3A%5CProgramming%5CUnderWork%5Cluzo-next-latest-main&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
 module.exports = __webpack_exports__;
 
 })();
